@@ -1,0 +1,8 @@
+.Board {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.Board ul {
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}

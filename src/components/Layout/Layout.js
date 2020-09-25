@@ -1,17 +1,15 @@
-import React from 'react';
-import Aux from '../../hoc/Aux';
-import Toolbar from '../Navigation/Toolbar/Toolbar';
-import Main from '../../containers/Main/Main'
-import './Layout.css'
+import React from "react";
+import Aux from "../../hoc/Aux";
+import Toolbar from "../Navigation/Toolbar/Toolbar";
+import "./Layout.css";
 
 let layout = (props) => {
-    return (
+  return (
     <Aux>
-        <Toolbar />
-        <Main />
-        
+      <Toolbar />
+      <div>{props.children}</div>
     </Aux>
-    )
-}
+  );
+};
 
 export default layout;

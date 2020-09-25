@@ -1,19 +1,22 @@
-import React from 'react';
+import React from "react";
+import Layout from "../../components/Layout/Layout";
+import FixedBoard from "../../components/FixedBoard/FixedBoard";
+import "./Main.css";
 
-class Main extends React.Component {
-    render () {
-        return (
-            <div className='MainPage'>
-                <div className='Feed'>
-                    <header className='Status'>StatusBar</header>
-                    <main className='Posts'>props.children</main>
-                </div>
-                <div className='SideContent'>
-                    <aside>Content</aside>
-                </div>
-            </div>
-        )
-    }
-}
+let main = (props) => {
+  return (
+    <Layout>
+      <div className="MainPage">
+        <div className="Feed">
+          <header className="Status">StatusBar</header>
+          <main className="Posts">props.children</main>
+        </div>
+        <div className="SideContent">
+          <FixedBoard />
+        </div>
+      </div>
+    </Layout>
+  );
+};
 
-export default Main;
+export default main;

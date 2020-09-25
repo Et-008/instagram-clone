@@ -1,9 +1,17 @@
 .Toolbar {
-    height: 53px;
-    margin: 0;
-    padding: 0 100px;
-    box-shadow: 1px 0px 2px grey;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  height: 53px;
+  margin: 0;
+  padding: 0 100px;
+  box-shadow: 1px 0px 2px grey;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.SearchBar {
+  display: none;
+}
+@media (min-width: 500px) {
+  .SearchBar {
+    display: block;
+  }
 }
