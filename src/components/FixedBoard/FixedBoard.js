@@ -6,8 +6,8 @@ let fixedboard = (props) => {
     <aside className="Board">
       <header>User Profile</header>
       <div>
-        <h5>Recommended</h5>
         <ul>
+          <h4>Recommended</h4>
           <li>user1</li>
           <li>user2</li>
           <li>user3</li>
@@ -16,7 +16,8 @@ let fixedboard = (props) => {
         </ul>
       </div>
       <div>
-        About, Help, Press, Contact, API, Jobs, Privacy, Terms, Locations
+        About, Help, Press, Contact, API, Jobs, Privacy
+        <br></br> Terms, Locations
       </div>
       <footer>Copyrights</footer>
     </aside>

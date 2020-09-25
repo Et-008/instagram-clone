@@ -7,7 +7,7 @@ let layout = (props) => {
   return (
     <Aux>
       <Toolbar />
-      <div>{props.children}</div>
+      <div className="Children">{props.children}</div>
     </Aux>
   );
 };

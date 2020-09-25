@@ -6,11 +6,13 @@ import NavItems from "../NavItems/NavItems";
 let toolbar = (props) => {
   return (
     <div className="Toolbar">
-      <div>Home</div>
-      <input className="SearchBar" type="text" placeholder="search"></input>
-      <nav className="ToolBarNavigationItems">
-        <NavItems />
-      </nav>
+      <div className="Tools">
+        <div>Home</div>
+        <input className="SearchBar" type="text" placeholder="search"></input>
+        <nav className="ToolBarNavigationItems">
+          <NavItems />
+        </nav>
+      </div>
     </div>
   );
 };
