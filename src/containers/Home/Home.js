@@ -1,15 +1,16 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
 import FixedBoard from "../../components/FixedBoard/FixedBoard";
-import "./Main.css";
+import Posts from "../../components/Posts/Posts";
+import "./Home.css";
 
-let main = (props) => {
+let home = (props) => {
   return (
     <Layout>
       <div className="MainPage">
         <div className="Feed">
           <header className="Status">StatusBar</header>
-          <main className="Posts">props.children</main>
+          <Posts />
         </div>
         <div className="SideContent">
           <FixedBoard />
@@ -19,4 +20,4 @@ let main = (props) => {
   );
 };
 
-export default main;
+export default home;
