@@ -3,23 +3,33 @@ import "./FixedBoard.css";
 
 let fixedboard = (props) => {
   return (
-    <aside className="Board">
-      <header>User Profile</header>
+    <aside className="FixedBoard">
       <div>
-        <ul>
-          <h4>Recommended</h4>
-          <li>user1</li>
-          <li>user2</li>
-          <li>user3</li>
-          <li>user4</li>
-          <li>user5</li>
-        </ul>
+        <div>
+          <header>User Profile</header>
+        </div>
+        <div className="List">
+          <div>
+            <p>
+              <strong>Recommended</strong> See All
+            </p>
+          </div>
+          <div>
+            <ul>
+              <li>user1_Name</li>
+              <li>user2_Name</li>
+              <li>user3_Name</li>
+              <li>user4_Name</li>
+              <li>user5_Name</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          About, Help, Press, Contact, API, Jobs, Privacy
+          <br></br> Terms, Locations
+        </div>
+        <footer>Copyrights</footer>
       </div>
-      <div>
-        About, Help, Press, Contact, API, Jobs, Privacy
-        <br></br> Terms, Locations
-      </div>
-      <footer>Copyrights</footer>
     </aside>
   );
 };

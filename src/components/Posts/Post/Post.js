@@ -1,11 +1,12 @@
 import React from "react";
+import Images from "../../../assets/Images/Images";
 import "./Post.css";
 
 let post = (props) => {
   return (
     <div className="Post">
       <div>
-        <text>( )</text>
+        <p>( )</p>
       </div>
       <div>
         <p>
@@ -14,7 +15,14 @@ let post = (props) => {
         </p>
       </div>
       <img className="PostImage" alt="Image" src="" />
-      <i>Like, comment, share</i>
+      <div>
+        <div>
+          <img className="Icon" alt="Heart" src={Images.Heart} />
+          <img className="Icon" alt="Comments" src={Images.Comments} />
+          <img className="Icon" alt="Messenger" src={Images.Messenger} />
+        </div>
+        <img className="Icon" alt="Bookmark" src={Images.Bookmark} />
+      </div>
       <p>Comments...</p>
       <p>Comments...</p>
       <p>Comments...</p>

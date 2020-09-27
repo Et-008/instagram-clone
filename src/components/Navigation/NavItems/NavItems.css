@@ -1,4 +1,15 @@
 .NavItems {
   list-style-type: none;
-  display: block;
+  display: none;
+  padding: 0;
+}
+.Icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+@media (min-width: 500px) {
+  .NavItems {
+    display: flex;
+  }
 }

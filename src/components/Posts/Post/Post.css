@@ -1,8 +1,9 @@
 .Post {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 50px;
   box-sizing: border-box;
+  border: 1px solid rgba(179, 176, 176, 0.986);
   background: #ddd;
 }
 .PostImage {
