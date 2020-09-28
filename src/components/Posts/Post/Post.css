@@ -15,15 +15,21 @@
 .NewComment {
   margin: 0;
   padding: 0;
-  height: 25px;
+  height: 35px;
   width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 .NewComment input {
   margin: 0;
   padding: 0;
   border: 0;
-  width: 85%;
-  height: 100%;
+  width: 80%;
+}
+.NewComment > input:focus {
+  outline-width: 0;
 }
 .NewComment button {
   width: 15%;
