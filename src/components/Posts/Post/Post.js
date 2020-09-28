@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Images from "../../../assets/Images/Images";
 import "./Post.css";
 
-let post = (props) => {
+let Post = (props) => {
+  let postButtonStatus = false;
+  let [value, setValue] = useState()
+  let onChangeHandler = (e) => {
+    setValue(e.target.value)
+  }
   return (
     <div className="Post">
       <div>
@@ -27,11 +32,11 @@ let post = (props) => {
       <p>Comments...</p>
       <p>Comments...</p>
       <div className="NewComment">
-        <input type="textarea" placeholder="Add Comments Here..." />
-        <button>Post</button>
+        <input type="textarea" value={value} onChange={onChangeHandler} placeholder="Add Comments Here..." />
+        <button disabled={value ? false : true} onClick={() => {return alert(value)}} >Post</button>
       </div>
     </div>
   );
 };
 
-export default post;
+export default Post;
