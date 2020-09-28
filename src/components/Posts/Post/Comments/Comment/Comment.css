@@ -1,0 +1,16 @@
+.Comment {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  padding: 0 10px;
+  font-size: 0.8rem;
+}
+.Comment a {
+  padding-right: 5px;
+  text-decoration: none;
+  color: black;
+}
+.Comment a:hover {
+  text-decoration: underline;
+}

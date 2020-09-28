@@ -1,25 +1,10 @@
-import Home from "./Home.png";
-import Heart from "./Heart.png";
-import Bookmark from "./Bookmark.png";
-import Compass from "./Compass.png";
-import Camera from "./Camera.png";
-import Comments from "./Comments.png";
-import Instagram from "./Instagram.png";
-import Messenger from "./Messenger.png";
-import Search from "./Search.png";
-import User from "./User.png";
+import Dana from "./dana-ward.jpg";
+import Ethan from "./ethan-hooson.jpg";
+import Certificate from "./certificate.jpg";
+import Joyce from "./joyce-g.jpg";
+import Raphael from "./raphael-nast.jpg";
+import Tim from "./tim-peterson.jpg";
 
-let Icons = {
-  Home: Home,
-  Heart: Heart,
-  Bookmark: Bookmark,
-  Camera: Camera,
-  Compass: Compass,
-  Comments: Comments,
-  Instagram: Instagram,
-  Messenger: Messenger,
-  Search: Search,
-  User: User
-};
+let Images = [Dana, Ethan, Certificate, Joyce, Raphael, Tim];
 
-export default Icons;
+export default Images;
