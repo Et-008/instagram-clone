@@ -4,18 +4,22 @@
   margin-bottom: 50px;
   box-sizing: border-box;
   border: 1px solid rgba(179, 176, 176, 0.986);
-  background: #ddd;
+  background: white;
 }
 .PostImage {
   display: block;
   width: 100%;
-  height: 600px;
   background-color: white;
+}
+hr {
+  border-top: none;
+  border-color: grey;
+  opacity: 0.25;
 }
 .NewComment {
   margin: 0;
   padding: 0;
-  height: 35px;
+  height: 45px;
   width: 100%;
   background-color: white;
   display: flex;
@@ -27,6 +31,8 @@
   padding: 0;
   border: 0;
   width: 80%;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 .NewComment input:focus {
   outline: 0;
@@ -36,7 +42,7 @@
   height: 100%;
   border: 0;
   background-color: white;
-  color: #00B3F2;
+  color: #00b3f2;
   float: right;
   display: block;
   font-weight: bold;

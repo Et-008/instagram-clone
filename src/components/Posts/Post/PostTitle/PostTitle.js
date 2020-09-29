@@ -1,12 +1,13 @@
 import React from "react";
+import "./PostTitle.css";
 
 let title = (props) => {
   return (
-    <div>
-      <div>
-        <p>( )</p>
+    <div className="PostTitle">
+      <div className="UserIcon">
+        <p>:-)</p>
       </div>
-      <div>
+      <div className="UserId">
         <p>
           <strong>DP, user.name</strong>
           <br></br>location

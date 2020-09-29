@@ -1,0 +1,14 @@
+.PostTitle {
+  display: flex;
+  height: 60px;
+  font-size: 0.8rem;
+}
+.UserIcon {
+  width: 50px;
+  display: flexbox;
+  text-align: center;
+  box-sizing: border-box;
+}
+.UserId {
+  display: block;
+}

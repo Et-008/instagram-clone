@@ -24,7 +24,7 @@ let PostReaction = (props) => {
         />
       </div>
       <div className="ReactionStatus">
-        <p>234 Likes</p>
+        <p>{props.NoOfLikes} Likes</p>
       </div>
     </div>
   );

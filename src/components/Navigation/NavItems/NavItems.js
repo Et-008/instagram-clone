@@ -1,25 +1,35 @@
 import React from "react";
 import NavItem from "./NavItem/NavItem";
-import Images from "../../../assets/Images/Images";
+import Icons from "../../../assets/Icons/Icons";
 import "./NavItems.css";
 
 let navitems = (props) => {
   return (
     <ul className="NavItems">
       <NavItem>
-        <img alt="Icon" className="Icon WebsiteView" src={Images.Home} />
+        <a href="/">
+          <img alt="Icon" className="Icon WebsiteView" src={Icons.Home} />
+        </a>
       </NavItem>
       <NavItem>
-        <img alt="Icon" className="Icon WebsiteView" src={Images.Messenger} />
+        <a href="/Messenger">
+          <img alt="Icon" className="Icon WebsiteView" src={Icons.Messenger} />
+        </a>
       </NavItem>
       <NavItem>
-        <img alt="Icon" className="Icon WebsiteView" src={Images.Compass} />
+        <a href="/Explore">
+          <img alt="Icon" className="Icon WebsiteView" src={Icons.Compass} />
+        </a>
       </NavItem>
       <NavItem>
-        <img alt="Icon" className="Icon WebsiteView" src={Images.Heart} />
+        <a>
+          <img alt="Icon" className="Icon WebsiteView" src={Icons.Heart} />
+        </a>
       </NavItem>
       <NavItem>
-        <img alt="Icon" className="Icon WebsiteView" src={Images.User} />
+        <a href="/Profile">
+          <img alt="Icon" className="Icon WebsiteView" src={Icons.User} />
+        </a>
       </NavItem>
     </ul>
   );

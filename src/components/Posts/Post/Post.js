@@ -1,42 +1,48 @@
-import React, { useState } from "react";
-import Images from "../../../assets/Images/Images";
+import React, { Component } from "react";
+import PostTitle from "./PostTitle/PostTitle";
+import PostReactions from "./PostReactions/PostReactions";
+import PostImage from "./PostImage/PostImage";
+import Comments from "./Comments/Comments";
 import "./Post.css";
 
-let Post = (props) => {
-  let postButtonStatus = false;
-  let [value, setValue] = useState()
-  let onChangeHandler = (e) => {
-    setValue(e.target.value)
-  }
-  return (
-    <div className="Post">
-      <div>
-        <p>( )</p>
-      </div>
-      <div>
-        <p>
-          <strong>DP, user.name</strong>
-          <br></br>location
-        </p>
-      </div>
-      <img className="PostImage" alt="Image" src="" />
-      <div>
-        <div>
-          <img className="Icon" alt="Heart" src={Images.Heart} />
-          <img className="Icon" alt="Comments" src={Images.Comments} />
-          <img className="Icon" alt="Messenger" src={Images.Messenger} />
+class Post extends Component {
+  state = {
+    value: "",
+    postButtonStatus: false
+  };
+  onChangeHandler = (e) => {
+    this.setState({ value: e.target.value });
+  };
+  render() {
+    return (
+      <div className="Post">
+        <PostTitle />
+        <PostImage ImageSource={this.props.ImageSource} />
+        <PostReactions NoOfLikes={Math.floor(Math.random() * 1000)}/>
+        <Comments
+          PostSource={this.props.ImageSource}
+          NoOfComments={Math.floor(Math.random() * 10)}
+        />
+        <hr />
+        <div className="NewComment">
+          <input
+            type="text"
+            value={this.state.value}
+            onChange={this.onChangeHandler}
+            placeholder="Add Comments Here..."
+          />
+          <button
+            disabled={this.state.value ? false : true}
+            onClick={() => {
+              return alert(this.state.value);
+            }}
+          >
+            Post
+          </button>
         </div>
-        <img className="Icon" alt="Bookmark" src={Images.Bookmark} />
       </div>
-      <p>Comments...</p>
-      <p>Comments...</p>
-      <p>Comments...</p>
-      <div className="NewComment">
-        <input type="textarea" value={value} onChange={onChangeHandler} placeholder="Add Comments Here..." />
-        <button disabled={value ? false : true} onClick={() => {return alert(value)}} >Post</button>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Post;
