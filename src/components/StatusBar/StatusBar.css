@@ -18,12 +18,3 @@
 ::-webkit-scrollbar-thumb {
   background: #ff0000;
 }
-.Status {
-  min-width: 70px;
-  height: 70px;
-  margin: 0 2px;
-  background-color: grey;
-  border: 1px solid red;
-  border-radius: 75%;
-  box-sizing: border-box;
-}

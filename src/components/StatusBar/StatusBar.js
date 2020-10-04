@@ -1,39 +1,13 @@
 import React from "react";
 import "./StatusBar.css";
+import Status from "./Status/Status";
 
 let statusBar = (props) => {
-  return (
-    <div className="StatusBar">
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-      <div className="Status"></div>
-    </div>
-  );
+  let NoOfStatus = [];
+  for (let i = 0; i < 45; i++) {
+    NoOfStatus.push(<Status />);
+  }
+  return <div className="StatusBar">{NoOfStatus}</div>;
 };
 
 export default statusBar;
