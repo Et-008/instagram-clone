@@ -1,7 +1,32 @@
 .Profile {
-  width: 85%;
+  width: 70%;
   height: 900px;
-  background-color: grey;
   display: block;
-  margin: 0 auto;
+  border: 1px solid red;
+  margin: 10px auto;
+}
+.ProfileDetails {
+  display: flex;
+  padding: 10px 0;
+  border: 1px solid red;
+  justify-content: space-around;
+}
+.ProfileDetails img {
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  height: 250px;
+  display: block;
+  border: 1px solid blue;
+}
+.ProfileDetails p {
+  margin: 0;
+  padding: 0;
+  width: 60%;
+  height: 250px;
+  display: block;
+  border: 1px solid blue;
+}
+.UserName {
+  font-size: 1.5rem;
 }

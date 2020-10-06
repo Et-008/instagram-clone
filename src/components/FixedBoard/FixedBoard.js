@@ -28,7 +28,12 @@ let fixedboard = (props) => {
           About, Help, Press, Contact, API, Jobs, Privacy
           <br></br> Terms, Locations
         </div>
-        <footer>Copyrights</footer>
+        <hr />
+        <footer>
+          <strong>
+            <i>Project by Arun ET</i>
+          </strong>
+        </footer>
       </div>
     </aside>
   );

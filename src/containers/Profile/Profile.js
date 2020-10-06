@@ -5,7 +5,14 @@ let profile = (props) => {
   return (
     <div>
       <div className="Profile">
-        <p>Profile</p>
+        <div className="ProfileDetails">
+          <img alt="ProfilePic" />
+          <p>
+            <a className="UserName" href="/Profile">
+              user name
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

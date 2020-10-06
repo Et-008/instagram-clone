@@ -1,2 +1,8 @@
-.Posts {
+.Footer {
+  width: 100%;
+}
+@media (min-width: 500px) {
+  .Footer {
+    display: none;
+  }
 }
