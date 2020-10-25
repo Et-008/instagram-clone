@@ -22,7 +22,7 @@ let navitems = (props) => {
         </a>
       </NavItem>
       <NavItem>
-        <a>
+        <a href='/'>
           <img alt="Icon" className="Icon WebsiteView" src={Icons.Heart} />
         </a>
       </NavItem>

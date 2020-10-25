@@ -5,11 +5,11 @@ let title = (props) => {
   return (
     <div className="PostTitle">
       <div className="UserIcon">
-        <p>:-)</p>
+        <img className='DP' src={props.dp} />
       </div>
       <div className="UserId">
         <p>
-          <strong>DP, user.name</strong>
+          <strong>{props.userName}</strong>
           <br></br>location
         </p>
       </div>

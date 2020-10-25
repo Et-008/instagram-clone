@@ -14,12 +14,12 @@ class Post extends Component {
   render() {
     return (
       <div className="Post">
-        <PostTitle />
+        <PostTitle dp={this.props.displaypic} userName={this.props.userName} />
         <PostImage ImageSource={this.props.ImageSource} />
-        <PostReactions NoOfLikes={Math.floor(Math.random() * 1000)} />
+        <PostReactions NoOfLikes={this.props.Likes} />
         <Comments
           PostSource={this.props.ImageSource}
-          NoOfComments={Math.floor(Math.random() * 10)}
+          NoOfComments={0}
         />
         <hr />
         <NewComment />
