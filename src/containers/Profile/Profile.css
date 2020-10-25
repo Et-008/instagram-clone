@@ -10,14 +10,14 @@
   padding: 10px 0;
   border: 1px solid red;
   justify-content: space-around;
+  align-content: center;
 }
 .ProfileDetails img {
-  margin: 0;
-  padding: 0;
-  width: 30%;
-  height: 250px;
+  width: 15%;
+  height: 150px;
   display: block;
   border: 1px solid blue;
+  border-radius: 50%;
 }
 .ProfileDetails p {
   margin: 0;
@@ -26,7 +26,23 @@
   height: 250px;
   display: block;
   border: 1px solid blue;
+  text-align: left;
+}
+.ProfileDetails p a {
+  display: block;
+  width: 100%;
 }
 .UserName {
   font-size: 1.5rem;
+}
+.Test {
+  margin: 10px;
+  border: 1px solid orange;
+  height: 100px;
+  width: 40%;
+}
+.TestCard {
+  margin: 5px;
+  background-color: black;
+  color: white;
 }
