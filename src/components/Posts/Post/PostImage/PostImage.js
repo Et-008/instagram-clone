@@ -1,7 +1,7 @@
 import React from "react";
 
 let postImage = (props) => {
-  return <img className="PostImage" alt="Image" src={props.ImageSource} />;
+  return <img className="PostImage" alt="Oops" src={props.ImageSource} />;
 };
 
 export default postImage;

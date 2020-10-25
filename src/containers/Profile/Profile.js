@@ -20,14 +20,3 @@ let profile = (props) => {
 };
 
 export default profile;
-
-            hello
-          </div>
-        </div>
-        <div className="Test"></div>
-      </div>
-    </div>
-  );
-};
-
-export default profile;

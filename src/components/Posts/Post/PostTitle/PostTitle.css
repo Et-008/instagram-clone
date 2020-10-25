@@ -12,3 +12,11 @@
 .UserId {
   display: block;
 }
+.DP {
+  width: 35px;
+  height: 35px;
+  align-self: center;
+  justify-self: center;
+  margin-top: 10px;
+  border-radius: 50%;
+}
