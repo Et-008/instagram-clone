@@ -14,7 +14,7 @@ class Post extends Component {
   render() {
     return (
       <div className="Post">
-        <PostTitle dp={this.props.displaypic} userName={this.props.userName} />
+        <PostTitle dp={this.props.displaypic} userName={this.props.userName} location={this.props.location} />
         <PostImage ImageSource={this.props.ImageSource} />
         <PostReactions NoOfLikes={this.props.Likes} />
         <Comments
