@@ -40,7 +40,8 @@ class Posts extends React.Component {
       data.collection.data.map((image) => {
         console.log(result)
         this.state.postWithImages.push(<Post key={image.id} ImageSource={image.urls.raw}
-          displaypic={result.user.profile_image.small} userName={result.user.first_name + result.user.last_name} Likes={image.likes} />);
+          displaypic={result.user.profile_image.small} location={result.user.location}
+          userName={result.user.first_name + " " + result.user.last_name} Likes={image.likes} />);
       });
     });
     return (

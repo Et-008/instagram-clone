@@ -10,7 +10,7 @@ let title = (props) => {
       <div className="UserId">
         <p>
           <strong>{props.userName}</strong>
-          <br></br>location
+          <br></br>{props.location}
         </p>
       </div>
     </div>
