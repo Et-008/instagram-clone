@@ -12,6 +12,7 @@ let router = (props) => {
       <Route path="/Explore" exact render={() => "Explore"} />
       <Route path="/Profile" exact render={() => <Profile />} />
       <Route path="/Saved" exact render={() => "Saved"} />
+      <Route path="/Auth" exact render={() => "Auth"} />
     </Layout>
   );
 };

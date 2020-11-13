@@ -1,0 +1,15 @@
+.Login_Signup {
+  width: 450px;
+  height: 300px;
+  border: 1px solid;
+  display: block;
+  margin: 50px auto;
+  text-align: center;
+  display: grid;
+}
+.Login-Form {
+  margin: 50px auto;
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+}
