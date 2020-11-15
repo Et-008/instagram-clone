@@ -3,16 +3,19 @@
   display: none;
   padding: 0;
 }
+
 .Icon {
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
+
 @media (min-width: 500px) {
   .NavItems {
     display: flex;
   }
 }
+
 @media (max-width: 499px) {
   .NavItems {
     display: flex;
@@ -29,5 +32,9 @@
     display: block;
     background: red;
     position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
   }
 }
