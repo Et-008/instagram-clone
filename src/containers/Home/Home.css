@@ -14,18 +14,18 @@
 }
 @media (min-width: 500px) {
   .MainPage {
-    width: 75%;
-    margin: 0 auto;
+    width: 65%;
+    margin: 18px auto;
     flex-flow: row;
   }
   .Feed {
-    width: 63%;
+    width: 66%;
   }
   .SideContent {
-    display: block;
-    width: 30%;
-    margin-left: 48%;
-    padding-top: 50px;
+    display: inline-block;
+    width: 22.1%;
+    margin-left: 42.9%;
+    padding-top: 47px;
     height: 100%;
     position: fixed;
   }
