@@ -13,3 +13,21 @@
     display: flex;
   }
 }
+@media (max-width: 499px) {
+  .NavItems {
+    display: flex;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    justify-content: space-around;
+    background: white;
+    width: 100%;
+    padding: 15px;
+    margin: auto;
+  }
+  .NavItems::before {
+    display: block;
+    background: red;
+    position: absolute;
+  }
+}

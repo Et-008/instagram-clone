@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import Auth from "../Auth/Auth";
 import "./Profile.css";
 
-let profile = (props) => {
+let Profile = (props) => {
   let [authenticated, setAuthenticted] = useState(false);
   let [Name, setName] = useState("");
   let [Password, setPassword] = useState("");
   let authenticate = () => {
     setAuthenticted(true);
   };
-  let NameChangeHandler = () => {
+  let NameChangeHandler = (event) => {
     setName(event.target.value);
   };
-  let PasswordChangeHandler = () => {
+  let PasswordChangeHandler = (event) => {
     setPassword(event.target.value);
   };
   return authenticated ? (
@@ -40,4 +40,4 @@ let profile = (props) => {
   );
 };
 
-export default profile;
+export default Profile;
