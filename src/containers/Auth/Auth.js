@@ -11,7 +11,7 @@ let authentication = (props) => {
           <input
             className="Input_Areas"
             value={props.Name}
-            onChange={() => props.Namechanged()}
+            onChange={(event) => props.Namechanged(event)}
             type="text"
             required
           ></input>
@@ -21,7 +21,7 @@ let authentication = (props) => {
           <input
             className="Input_Areas"
             value={props.Password}
-            onChange={() => props.PasswordChanged()}
+            onChange={(event) => props.PasswordChanged(event)}
             type="password"
             required
           ></input>
@@ -29,7 +29,7 @@ let authentication = (props) => {
       </form>
       <button
         disabled={props.Name && props.Password ? false : true}
-        onClick={() => props.Authentication()}
+        onClick={(event) => props.Authentication(event)}
       >
         Login
       </button>

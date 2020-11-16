@@ -1,0 +1,30 @@
+.Upload {
+    width: 70%;
+    height: 70vh;
+    border: 1px solid;
+    display: block;
+    margin: auto;
+    margin-top: 10vh;
+    text-align: center;
+}
+.UploadPreview {
+    margin-top: 30px;
+    width: 250px;
+    height: 300px;
+    display: inline;
+    position: relative;
+    box-sizing: border-box;
+}
+.UploadInput {
+    display: block;
+    width: 200px;
+    margin: auto;
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 50px;
+    color: white;
+    background: black;
+}
+.UploadInput input {
+    display: none;
+}

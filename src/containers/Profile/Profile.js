@@ -33,9 +33,9 @@ let Profile = (props) => {
     <Auth
       Name={Name}
       Password={Password}
-      Namechanged={(event) => NameChangeHandler()}
-      PasswordChanged={(event) => PasswordChangeHandler()}
-      Authentication={(event) => authenticate()}
+      Namechanged={(event) => NameChangeHandler(event)}
+      PasswordChanged={(event) => PasswordChangeHandler(event)}
+      Authentication={(event) => authenticate(event)}
     />
   );
 };

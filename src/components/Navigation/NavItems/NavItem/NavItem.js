@@ -2,7 +2,8 @@ import React from "react";
 import "./NavItem.css";
 
 let navitem = (props) => {
-  return <li className="NavItem">{props.children}</li>;
+  let classes = ['NavItem', props.view]
+  return <li className={classes.join(' ')}>{props.children}</li>;
 };
 
 export default navitem;

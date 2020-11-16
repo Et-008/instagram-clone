@@ -4,6 +4,7 @@ import Bookmark from "./Bookmark.png";
 import Compass from "./Compass.png";
 import Comments from "./Comments.png";
 import Messenger from "./Messenger.png";
+import Plus from "./Plus.png";
 import User from "./User.png";
 
 let Icons = {
@@ -13,6 +14,7 @@ let Icons = {
   Compass: Compass,
   Comments: Comments,
   Messenger: Messenger,
+  Plus: Plus,
   User: User
 };
 
