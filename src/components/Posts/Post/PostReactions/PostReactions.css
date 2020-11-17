@@ -28,3 +28,63 @@
 .ReactionStatus p {
   margin: 0;
 }
+
+.ReactionIconsHeart {
+  display: inline-block;
+  position: relative;
+  width: 28px;
+  height: 25px;
+}
+
+.ReactionIconsHeart:before,
+.ReactionIconsHeart:after {
+  position: absolute;
+  content: "";
+  left: 13px;
+  top: 2px;
+  width: 13px;
+  height: 20px;
+  background: white;
+  border: 1px solid;
+  z-index: 10;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-46deg);
+  transform-origin: 0 100%;
+}
+
+.ReactionIconsHeart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.Liked {
+  display: inline-block;
+  position: relative;
+  width: 28px;
+  height: 25px;
+}
+
+.Liked:before,
+.Liked:after {
+  position: absolute;
+  content: "";
+  left: 13px;
+  top: 2px;
+  width: 13px;
+  height: 20px;
+  background: red;
+  z-index: 10;
+  border-radius: 50px 50px 0 0;
+  box-sizing: border-box;
+  transform: rotate(-46deg);
+  transform-origin: 0 100%;
+}
+
+.Liked:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}

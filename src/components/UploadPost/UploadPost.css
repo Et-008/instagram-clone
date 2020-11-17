@@ -1,30 +1,59 @@
 .Upload {
-    width: 70%;
-    height: 70vh;
-    border: 1px solid;
-    display: block;
-    margin: auto;
-    margin-top: 10vh;
-    text-align: center;
+  width: 70%;
+  height: 70vh;
+  display: block;
+  margin: auto;
+  margin-top: 10vh;
+  text-align: center;
 }
 .UploadPreview {
-    margin-top: 30px;
-    width: 250px;
-    height: 300px;
-    display: inline;
-    position: relative;
-    box-sizing: border-box;
+  margin-top: 30px;
+  width: 250px;
+  height: 300px;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.25);
+}
+.UploadSelect {
+  margin-top: 30px;
+  width: 250px;
+  height: 300px;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  transition: font-size 150ms ease-in, background 150ms;
+}
+.UploadSelect input {
+  display: none;
+}
+.UploadSelect::before {
+  content: "+";
+  align-items: center;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  position: absolute;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 6em;
+  z-index: -1;
+}
+.UploadSelect:hover {
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 1.5em;
 }
 .UploadInput {
-    display: block;
-    width: 200px;
-    margin: auto;
-    padding: 15px;
-    border: 1px solid;
-    border-radius: 50px;
-    color: white;
-    background: black;
-}
-.UploadInput input {
-    display: none;
+  display: block;
+  width: 200px;
+  margin: auto;
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 50px;
+  color: white;
+  background: black;
 }
