@@ -17,17 +17,17 @@ let PostReaction = (props) => {
       <div className="ReactionIconsDiv">
         <div id="heart" onClick={() => Like()} className={HeartClasses}></div>
         <img
-          className="Icon ReactionIcons"
+          className="ReactionIcons"
           alt="Comments"
           src={Icons.Comments}
         />
         <img
-          className="Icon ReactionIcons"
+          className="ReactionIcons"
           alt="Messenger"
           src={Icons.Messenger}
         />
         <img
-          className="Icon ReactionIcons IconsRight"
+          className="ReactionIcons IconsRight"
           alt="Bookmark"
           src={Icons.Bookmark}
         />
