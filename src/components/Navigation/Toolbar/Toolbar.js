@@ -13,6 +13,10 @@ let toolbar = (props) => {
           {/*<img className="Logo" alt="Home" src={Icons.Instagram} />*/}
         </div>
         <input className="SearchBar" type="text" placeholder="search"></input>
+        <div className="MobileFloatIcon">
+          <p>O=</p>
+          <p>=></p>
+        </div>
         <nav className="ToolBarNavigationItems">
           <NavItems />
         </nav>

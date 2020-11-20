@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Auth from "../Auth/Auth";
+import Auth from "../Auth/Login/Login";
 import "./Profile.css";
 
 let Profile = (props) => {

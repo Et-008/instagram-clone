@@ -12,7 +12,27 @@
 .SideContent {
   display: none;
 }
-@media (min-width: 500px) {
+
+@media (min-width: 500px) and (max-width: 749px) {
+  .MainPage {
+    width: 85%;
+    margin: 18px auto;
+    flex-flow: row;
+  }
+  .Feed {
+    width: 66%;
+  }
+  .SideContent {
+    display: inline-block;
+    width: 28%;
+    margin-left: 56.9%;
+    padding-top: 47px;
+    height: 100%;
+    position: fixed;
+  }
+}
+
+@media (min-width: 750px) {
   .MainPage {
     width: 65%;
     margin: 18px auto;

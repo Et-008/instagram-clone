@@ -16,16 +16,8 @@ let PostReaction = (props) => {
     <div className="PostReactions">
       <div className="ReactionIconsDiv">
         <div id="heart" onClick={() => Like()} className={HeartClasses}></div>
-        <img
-          className="ReactionIcons"
-          alt="Comments"
-          src={Icons.Comments}
-        />
-        <img
-          className="ReactionIcons"
-          alt="Messenger"
-          src={Icons.Messenger}
-        />
+        <img className="ReactionIcons" alt="Comments" src={Icons.Comments} />
+        <img className="ReactionIcons" alt="Messenger" src={Icons.Messenger} />
         <img
           className="ReactionIcons IconsRight"
           alt="Bookmark"

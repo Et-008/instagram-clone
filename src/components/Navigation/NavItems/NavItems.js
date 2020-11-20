@@ -1,40 +1,42 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import NavItem from "./NavItem/NavItem";
 import Icons from "../../../assets/Icons/Icons";
 import "./NavItems.css";
+import * as Routes from "../../../constants/routes";
 
 let navitems = (props) => {
   return (
     <ul className="NavItems">
       <NavItem>
-        <a href="/">
+        <Link to={Routes.Home}>
           <img alt="Icon" className="Icon" src={Icons.Home} />
-        </a>
+        </Link>
       </NavItem>
       <NavItem view={"WebsiteView"}>
-        <a href="/Messenger">
+        <Link to={Routes.Messenger}>
           <img alt="Icon" className="Icon" src={Icons.Messenger} />
-        </a>
+        </Link>
       </NavItem>
       <NavItem>
-        <a href="/Explore">
+        <Link to={Routes.Compass}>
           <img alt="Icon" className="Icon" src={Icons.Compass} />
-        </a>
+        </Link>
       </NavItem>
       <NavItem view={"MobileView"}>
-        <a href="/Upload">
+        <Link to={Routes.Upload}>
           <img alt="Icon" className="Icon" src={Icons.Plus} />
-        </a>
+        </Link>
       </NavItem>
       <NavItem>
-        <a href='/'>
+        <Link to={Routes.Like}>
           <img alt="Icon" className="Icon" src={Icons.Heart} />
-        </a>
+        </Link>
       </NavItem>
       <NavItem>
-        <a href="/Profile">
+        <Link to={Routes.Profile}>
           <img alt="Icon" className="Icon" src={Icons.User} />
-        </a>
+        </Link>
       </NavItem>
     </ul>
   );
