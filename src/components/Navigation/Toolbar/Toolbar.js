@@ -15,11 +15,16 @@ let toolbar = (props) => {
         <input className="SearchBar" type="text" placeholder="search"></input>
         <div className="MobileFloatIcon">
           <p>O=</p>
-          <p>=></p>
+          <p title="Logout" onClick={props.Logout}>
+            =>
+          </p>
         </div>
         <nav className="ToolBarNavigationItems">
           <NavItems />
         </nav>
+        <button className="LogoutButton" onClick={props.Logout}>
+          Logout
+        </button>
       </div>
     </div>
   );

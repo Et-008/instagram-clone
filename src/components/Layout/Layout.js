@@ -6,7 +6,7 @@ import "./Layout.css";
 let layout = (props) => {
   return (
     <Aux>
-      <Toolbar />
+      <Toolbar Logout={props.Logout} />
       <div className="Children">{props.children}</div>
     </Aux>
   );

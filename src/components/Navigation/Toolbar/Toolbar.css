@@ -33,6 +33,11 @@
 }
 .MobileFloatIcon p {
   margin: 16px 8px;
+  cursor: pointer;
+}
+
+.LogoutButton {
+  display: none;
 }
 @media (min-width: 750px) {
   .SearchBar {
@@ -40,6 +45,12 @@
   }
   .MobileFloatIcon {
     display: none;
+  }
+  .LogoutButton {
+    display: block;
+    position: fixed;
+    right: 20px;
+    float: right;
   }
 }
 @media (min-width: 500px) {

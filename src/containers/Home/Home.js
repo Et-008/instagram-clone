@@ -5,8 +5,7 @@ import StatusBar from "../../components/StatusBar/StatusBar";
 import "./Home.css";
 
 class Home extends Component {
-  
-  render () {
+  render() {
     return (
       <div className="MainPage">
         <div className="Feed">
@@ -14,11 +13,11 @@ class Home extends Component {
           <Posts />
         </div>
         <div className="SideContent">
-          <FixedBoard />
+          <FixedBoard User={this.props.User} />
         </div>
       </div>
     );
   }
-};
+}
 
 export default Home;

@@ -6,7 +6,7 @@ let fixedboard = (props) => {
     <aside className="FixedBoard">
       <div>
         <div>
-          <header>User Profile</header>
+          <header>{props.User.name}</header>
         </div>
         <div className="List">
           <div>

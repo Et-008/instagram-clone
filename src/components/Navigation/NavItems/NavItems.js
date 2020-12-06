@@ -10,32 +10,47 @@ let navitems = (props) => {
     <ul className="NavItems">
       <NavItem>
         <Link to={Routes.Home}>
-          <img alt="Icon" className="Icon" src={Icons.Home} />
+          <img alt="Icon" className="Icon" title="Home" src={Icons.Home} />
         </Link>
       </NavItem>
       <NavItem view={"WebsiteView"}>
         <Link to={Routes.Messenger}>
-          <img alt="Icon" className="Icon" src={Icons.Messenger} />
+          <img
+            alt="Icon"
+            className="Icon"
+            title="Messenger"
+            src={Icons.Messenger}
+          />
         </Link>
       </NavItem>
       <NavItem>
         <Link to={Routes.Compass}>
-          <img alt="Icon" className="Icon" src={Icons.Compass} />
+          <img
+            alt="Icon"
+            className="Icon"
+            title="Explore"
+            src={Icons.Compass}
+          />
         </Link>
       </NavItem>
       <NavItem view={"MobileView"}>
         <Link to={Routes.Upload}>
-          <img alt="Icon" className="Icon" src={Icons.Plus} />
+          <img alt="Icon" className="Icon" title="Upload" src={Icons.Plus} />
         </Link>
       </NavItem>
       <NavItem>
         <Link to={Routes.Like}>
-          <img alt="Icon" className="Icon" src={Icons.Heart} />
+          <img
+            alt="Icon"
+            className="Icon"
+            title="Notifications"
+            src={Icons.Heart}
+          />
         </Link>
       </NavItem>
       <NavItem>
         <Link to={Routes.Profile}>
-          <img alt="Icon" className="Icon" src={Icons.User} />
+          <img alt="Icon" className="Icon" title="Profile" src={Icons.User} />
         </Link>
       </NavItem>
     </ul>
