@@ -1,34 +1,24 @@
 .Login_Signup_Container {
-  width: 450px;
-  height: 300px;
-  border: 1px solid;
-  display: block;
-  margin: 50px auto;
+  height: 100vh;
+  box-sizing: border-box;
   text-align: center;
-  display: grid;
-}
-.Login-Form {
-  margin: 50px auto;
+  background: white;
   display: flex;
   flex-flow: column;
-  width: 70%;
+  justify-content: center;
 }
-.Input_Label {
-  margin: 5px;
-  box-shadow: 2px 2px 20px 0.5px silver;
-  background: white;
-  font-weight: bold;
-  font-size: 0.8em;
-  grid-column: 40%;
-  align-content: center;
+.Login_Form {
+  display: inline;
 }
 .Input_Areas {
   border: 0;
-  height: 25px;
-  width: 200px;
-  min-width: 50%;
+  height: 2em;
+  width: 15em;
+  padding: 0 5px;
+  display: block;
   cursor: cursor;
-  float: right;
+  margin: 10px auto;
+  background: rgba(192, 192, 192, 0.25);
 }
 .Input_Areas:focus {
   outline: none;

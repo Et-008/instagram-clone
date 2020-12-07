@@ -1,0 +1,9 @@
+.signup-box {
+  height: 100vh;
+  box-sizing: border-box;
+  text-align: center;
+  background: white;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}

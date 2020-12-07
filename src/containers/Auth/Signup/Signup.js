@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactSelect from "react-select";
+import "./Signup.css";
 
 class App extends Component {
   constructor() {
@@ -178,192 +179,144 @@ class App extends Component {
     const { form, formErrors } = this.state;
     return (
       <div className="signup-box">
-        <p className="title">Sign up</p>
-        <div className="row">
-          <div className="col-md-6">
-            <div className="form-group">
-              <label>
-                Name:<span className="asterisk">*</span>
+        <h3>Sign Up</h3>
+        <input
+          className="Input_Areas"
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={form.name}
+          onChange={this.handleChange}
+          onBlur={this.handleChange}
+        />
+        {formErrors.name && <span className="err">{formErrors.name}</span>}
+        <input
+          className="Input_Areas"
+          type="text"
+          name="email"
+          placeholder="Email-Id"
+          value={form.email}
+          onChange={this.handleChange}
+          onBlur={this.handleChange}
+        />
+        {formErrors.email && <span className="err">{formErrors.email}</span>}
+        <input
+          className="Input_Areas"
+          type="text"
+          name="mobile"
+          placeholder="Mobile"
+          value={form.mobile}
+          onChange={this.handleChange}
+          onBlur={this.handleChange}
+          onKeyPress={this.validateNumber}
+        />
+        {formErrors.mobile && <span className="err">{formErrors.mobile}</span>}
+        <input
+          className="Input_Areas"
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={form.password}
+          onChange={this.handleChange}
+          onBlur={this.handleChange}
+        />
+        {formErrors.password && (
+          <span className="err">{formErrors.password}</span>
+        )}
+        <input
+          className="Input_Areas"
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          value={form.confirmPassword}
+          onChange={this.handleChange}
+          onBlur={this.handleChange}
+        />
+        {formErrors.confirmPassword && (
+          <span className="err">{formErrors.confirmPassword}</span>
+        )}
+        {/* <div>
+          <label className="mr-3">Language:</label>
+          {this.languageList.map((x, i) => {
+            return (
+              <label key={i} className="mr-2">
+                <input
+                  type="checkbox"
+                  name="language"
+                  value={x.value}
+                  checked={form.language.includes(x.value)}
+                  onChange={this.handleChange}
+                />{" "}
+                {x.label}
               </label>
-              <input
-                className="form-control"
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={this.handleChange}
-                onBlur={this.handleChange}
-              />
-              {formErrors.name && (
-                <span className="err">{formErrors.name}</span>
-              )}
-            </div>
-            <div className="form-group">
-              <label>
-                Email:<span className="asterisk">*</span>
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                name="email"
-                value={form.email}
-                onChange={this.handleChange}
-                onBlur={this.handleChange}
-              />
-              {formErrors.email && (
-                <span className="err">{formErrors.email}</span>
-              )}
-            </div>
-            <div className="form-group">
-              <label>
-                Password:<span className="asterisk">*</span>
-              </label>
-              <input
-                className="form-control"
-                type="password"
-                name="password"
-                value={form.password}
-                onChange={this.handleChange}
-                onBlur={this.handleChange}
-              />
-              {formErrors.password && (
-                <span className="err">{formErrors.password}</span>
-              )}
-            </div>
-            <div className="form-group">
-              <label>
-                Confirm Password:<span className="asterisk">*</span>
-              </label>
-              <input
-                className="form-control"
-                type="password"
-                name="confirmPassword"
-                value={form.confirmPassword}
-                onChange={this.handleChange}
-                onBlur={this.handleChange}
-              />
-              {formErrors.confirmPassword && (
-                <span className="err">{formErrors.confirmPassword}</span>
-              )}
-            </div>
-            <div className="form-group">
-              <label className="mr-3">
-                Language:<span className="asterisk">*</span>
-              </label>
-              <div className="form-control border-0 p-0 pt-1">
-                {this.languageList.map((x, i) => {
-                  return (
-                    <label key={i} className="mr-2">
-                      <input
-                        type="checkbox"
-                        name="language"
-                        value={x.value}
-                        checked={form.language.includes(x.value)}
-                        onChange={this.handleChange}
-                      />{" "}
-                      {x.label}
-                    </label>
-                  );
-                })}
-              </div>
-              {formErrors.language && (
-                <span className="err">{formErrors.language}</span>
-              )}
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="form-group">
-              <label>
-                Mobile:<span className="asterisk">*</span>
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                name="mobile"
-                value={form.mobile}
-                onChange={this.handleChange}
-                onBlur={this.handleChange}
-                onKeyPress={this.validateNumber}
-              />
-              {formErrors.mobile && (
-                <span className="err">{formErrors.mobile}</span>
-              )}
-            </div>
-            <div className="form-group">
-              <label className="mr-3">
-                Gender:<span className="asterisk">*</span>
-              </label>
-              <div className="form-control border-0 p-0 pt-1">
-                <label className="mr-2">
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="male"
-                    checked={form.gender === "male"}
-                    onChange={this.handleChange}
-                  />{" "}
-                  Male
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="female"
-                    checked={form.gender === "female"}
-                    onChange={this.handleChange}
-                  />{" "}
-                  Female
-                </label>
-              </div>
-              {formErrors.gender && (
-                <span className="err">{formErrors.gender}</span>
-              )}
-            </div>
-            <div className="form-group">
-              <label>Zip Code:</label>
-              <input
-                className="form-control"
-                type="text"
-                name="zipCode"
-                value={form.zipCode}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>
-                Country:<span className="asterisk">*</span>
-              </label>
-              <ReactSelect
-                name="country"
-                options={this.countryList}
-                value={this.countryList.find((x) => x.value === form.country)}
-                onChange={(e) =>
-                  this.handleChange({
-                    target: {
-                      name: "country",
-                      value: e.value
-                    }
-                  })
-                }
-              />
-              {formErrors.country && (
-                <span className="err">{formErrors.country}</span>
-              )}
-            </div>
-          </div>
+            );
+          })}
+          {formErrors.language && (
+            <span className="err">{formErrors.language}</span>
+          )}
+        </div> */}
+        <div>
+          <label className="mr-3">Gender:</label>
+          <input
+            type="radio"
+            name="gender"
+            value="male"
+            checked={form.gender === "male"}
+            onChange={this.handleChange}
+          />{" "}
+          Male
+          <input
+            type="radio"
+            name="gender"
+            value="female"
+            checked={form.gender === "female"}
+            onChange={this.handleChange}
+          />{" "}
+          Female
+          {formErrors.gender && (
+            <span className="err">{formErrors.gender}</span>
+          )}
         </div>
-
-        <div className="form-group">
+        <input
+          className="Input_Areas"
+          type="text"
+          name="zipCode"
+          placeholder="Zip Code"
+          value={form.zipCode}
+          onChange={this.handleChange}
+        />
+        <ReactSelect
+          className="Input_Areas"
+          name="country"
+          options={this.countryList}
+          value={this.countryList.find((x) => x.value === form.country)}
+          placeholder="Country"
+          onChange={(e) =>
+            this.handleChange({
+              target: {
+                name: "country",
+                value: e.value
+              }
+            })
+          }
+        />
+        {formErrors.country && (
+          <span className="err">{formErrors.country}</span>
+        )}
+        <div>
           <input
             type="button"
             className="btn btn-primary"
-            value="Submit"
+            value="Sign-up"
             onClick={this.handleSubmit}
           />
         </div>
-        <p>
-          Already have an account{" "}
-          <span onClick={this.props.OldUser}>Log-in?</span>
-        </p>
+        <h5>
+          Already have an account?{" "}
+          <span style={{ cursor: "pointer" }} onClick={this.props.OldUser}>
+            Log-in here
+          </span>
+        </h5>
       </div>
     );
   }

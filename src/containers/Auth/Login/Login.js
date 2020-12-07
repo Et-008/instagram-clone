@@ -7,40 +7,34 @@ let Login = (props) => {
   let [Password, setPassword] = useState("");
   return (
     <div className="Login_Signup_Container">
-      Login to Continue
+      <h3>Login</h3>
       <form className="Login-Form">
-        <label className="Input_Label">
-          Name:
-          <input
-            className="Input_Areas"
-            value={Name}
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            name="name"
-            required
-          ></input>
-        </label>
-        <label className="Input_Label">
-          Email-id:
-          <input
-            className="Input_Areas"
-            value={Email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="text"
-            name="email"
-            required
-          ></input>
-        </label>
-        <label className="Input_Label">
-          Password:
-          <input
-            className="Input_Areas"
-            value={Password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            required
-          ></input>
-        </label>
+        <input
+          className="Input_Areas"
+          value={Name}
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+          name="name"
+          placeholder="Name"
+          required
+        ></input>
+        <input
+          className="Input_Areas"
+          value={Email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          name="email"
+          placeholder="Email-Id"
+          required
+        ></input>
+        <input
+          className="Input_Areas"
+          value={Password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="Password"
+          required
+        ></input>
         <button
           disabled={Name && Email && Password ? false : true}
           onClick={() => {
@@ -55,9 +49,12 @@ let Login = (props) => {
           Login
         </button>
       </form>
-      <p>
-        Don't have an account? <span onClick={props.NewUser}>Sign-up</span>
-      </p>
+      <h5>
+        Don't have an account?{" "}
+        <span style={{ cursor: "pointer" }} onClick={props.NewUser}>
+          Sign-up
+        </span>
+      </h5>
     </div>
   );
 };
