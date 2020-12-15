@@ -5,10 +5,19 @@ let Login = (props) => {
   let [Name, setName] = useState("");
   let [Email, setEmail] = useState("");
   let [Password, setPassword] = useState("");
+
+  let clicked = (e) => {
+    let LoginDetails = {
+      name: Name,
+      email: Email,
+      Password: Password
+    };
+    return props.AuthenticationStatus(LoginDetails);
+  };
   return (
     <div className="Login_Signup_Container">
       <h3>Login</h3>
-      <form className="Login-Form">
+      <div className="Login-Form">
         <input
           className="Input_Areas"
           value={Name}
@@ -37,18 +46,11 @@ let Login = (props) => {
         ></input>
         <button
           disabled={Name && Email && Password ? false : true}
-          onClick={() => {
-            let LoginDetails = {
-              name: Name,
-              email: Email,
-              Password: Password
-            };
-            return props.AuthenticationStatus(LoginDetails);
-          }}
+          onClick={clicked}
         >
           Login
         </button>
-      </form>
+      </div>
       <h5>
         Don't have an account?{" "}
         <span style={{ cursor: "pointer" }} onClick={props.NewUser}>

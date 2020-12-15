@@ -1,9 +1,14 @@
-.signup-box {
+.Signup-Box {
+  display: flex;
   height: 100vh;
-  box-sizing: border-box;
+  flex-flow: column;
   text-align: center;
   background: white;
-  display: flex;
-  flex-flow: column;
+  box-sizing: border-box;
   justify-content: center;
+}
+.MobileNo {
+  margin: 0 auto;
+}
+.CountryCode input {
 }

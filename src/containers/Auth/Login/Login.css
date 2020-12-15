@@ -9,6 +9,7 @@
 }
 .Login_Form {
   display: inline;
+  border: 3px solid green;
 }
 .Input_Areas {
   border: 0;

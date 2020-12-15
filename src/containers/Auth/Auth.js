@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Login from "./Login/Login";
-import Signup from "./Signup/Signup";
+import Signup from "./Signup/Sign-up";
 
 class Auth extends Component {
   constructor(props) {
@@ -15,16 +15,21 @@ class Auth extends Component {
     this.setState({ newUser: !newUserState });
   };
 
+  AuthenticationHandler = (Details) => {
+    console.log(Details);
+    this.props.AuthStatus(Details);
+  };
+
   render() {
     return this.state.newUser ? (
       <Signup
         OldUser={this.LoginSignupHandler}
-        AuthenticationStatus={this.props.AuthStatus}
+        AuthenticationStatus={this.AuthenticationHandler}
       />
     ) : (
       <Login
         NewUser={this.LoginSignupHandler}
-        AuthenticationStatus={this.props.AuthStatus}
+        AuthenticationStatus={this.AuthenticationHandler}
       />
     );
   }

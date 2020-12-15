@@ -4,20 +4,20 @@ import * as Routes from "../../constants/routes";
 import Authentication from "../Auth/Auth";
 import Layout from "../../components/Layout/Layout";
 import UploadPost from "../../components/UploadPost/UploadPost";
-// import Login from "../Auth/Login/Login";
 import Home from "../Home/Home";
 import Profile from "../Profile/Profile";
 
 let router = (props) => {
-  let [authenticated, setAuthenticted] = useState(false);
+  let [authenticated, setAuthenticated] = useState(false);
   let [user, setUser] = useState({});
 
   let authHandler = (userDetails) => {
     setUser(userDetails);
-    setAuthenticted(true);
+    setAuthenticated(true);
   };
+
   let logoutHandler = () => {
-    setAuthenticted(false);
+    setAuthenticated(false);
   };
 
   return authenticated ? (

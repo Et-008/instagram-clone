@@ -20,6 +20,10 @@
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+.InstaIcon a {
+  text-decoration: none;
+  color: black;
+}
 .SearchBar {
   display: none;
 }

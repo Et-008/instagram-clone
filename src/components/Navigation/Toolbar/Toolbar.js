@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import * as Routes from "../../../constants/routes";
 import "./Toolbar.css";
 import NavItems from "../NavItems/NavItems";
 
@@ -8,9 +10,10 @@ let toolbar = (props) => {
       <div className="Tools">
         <div className="InstaIcon">
           <p>
-            <i>Instacam</i>
+            <Link to={Routes.Home}>
+              <i>Instacam</i>
+            </Link>
           </p>
-          {/*<img className="Logo" alt="Home" src={Icons.Instagram} />*/}
         </div>
         <input className="SearchBar" type="text" placeholder="search"></input>
         <div className="MobileFloatIcon">

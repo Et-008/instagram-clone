@@ -171,8 +171,7 @@ class App extends Component {
     if (Object.keys(errorObj).length !== 0) {
       this.setState({ formErrors: { ...formErrors, ...errorObj } });
       return false;
-    }
-    this.props.AuthenticationStatus(form);
+    } else this.props.Authentication(form);
   };
 
   render() {
@@ -181,6 +180,7 @@ class App extends Component {
       <div className="signup-box">
         <h3>Sign Up</h3>
         <input
+          required
           className="Input_Areas"
           type="text"
           name="name"
@@ -191,6 +191,7 @@ class App extends Component {
         />
         {formErrors.name && <span className="err">{formErrors.name}</span>}
         <input
+          required
           className="Input_Areas"
           type="text"
           name="email"
@@ -212,6 +213,7 @@ class App extends Component {
         />
         {formErrors.mobile && <span className="err">{formErrors.mobile}</span>}
         <input
+          required
           className="Input_Areas"
           type="password"
           name="password"
@@ -224,6 +226,7 @@ class App extends Component {
           <span className="err">{formErrors.password}</span>
         )}
         <input
+          required
           className="Input_Areas"
           type="password"
           name="confirmPassword"
@@ -308,7 +311,7 @@ class App extends Component {
             type="button"
             className="btn btn-primary"
             value="Sign-up"
-            onClick={this.handleSubmit}
+            onClick={() => this.handleSubmit()}
           />
         </div>
         <h5>
