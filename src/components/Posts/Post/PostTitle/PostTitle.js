@@ -5,7 +5,7 @@ let title = (props) => {
   return (
     <div className="PostTitle">
       <div className="UserIcon">
-        <img className='DP' src={props.dp} />
+        <img className='DP' alt="Title" src={props.dp} />
       </div>
       <div className="UserId">
         <p>

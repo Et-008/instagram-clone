@@ -10,8 +10,11 @@ let Login = (props) => {
     let LoginDetails = {
       name: Name,
       email: Email,
-      Password: Password
+      password: Password
     };
+    props.firebase.existingUser(LoginDetails.email, LoginDetails.password)
+    .then(user => console.log("Signed in as : ", user))
+    .catch(err => console.error("Login error : " + err));
     return props.AuthenticationStatus(LoginDetails);
   };
   return (

@@ -53,6 +53,11 @@ let navitems = (props) => {
           <img alt="Icon" className="Icon" title="Profile" src={Icons.User} />
         </Link>
       </NavItem>
+      <NavItem>
+        <Link to={Routes.Home}>
+          <img className="Icon" alt="Logout" src={Icons.Logout} />
+        </Link>
+      </NavItem>
     </ul>
   );
 };

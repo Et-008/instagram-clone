@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Icons from "../../../assets/Icons/Icons";
 import * as Routes from "../../../constants/routes";
 import "./Toolbar.css";
 import NavItems from "../NavItems/NavItems";
@@ -17,17 +18,21 @@ let toolbar = (props) => {
         </div>
         <input className="SearchBar" type="text" placeholder="search"></input>
         <div className="MobileFloatIcon">
-          <p>O=</p>
+          <p><img className="Icon" alt="Search" src={Icons.Search} /></p>
           <p title="Logout" onClick={props.Logout}>
-            =>
+            <Link to={Routes.Home}>
+              <img className="Icon" alt="Logout" src={Icons.Logout} />
+            </Link>
           </p>
         </div>
         <nav className="ToolBarNavigationItems">
           <NavItems />
         </nav>
-        <button className="LogoutButton" onClick={props.Logout}>
-          Logout
-        </button>
+        <p title="Logout" onClick={props.Logout}>
+          <Link to={Routes.Home}>
+            <img className="Icon" alt="Logout" src={Icons.Logout} />
+          </Link>
+        </p>
       </div>
     </div>
   );

@@ -1,42 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 import * as Routes from "../../constants/routes";
-import Authentication from "../Auth/Auth";
 import Layout from "../../components/Layout/Layout";
 import UploadPost from "../../components/UploadPost/UploadPost";
 import Home from "../Home/Home";
 import Profile from "../Profile/Profile";
 
-let router = (props) => {
-  let [authenticated, setAuthenticated] = useState(false);
-  let [user, setUser] = useState({});
-
-  let authHandler = (userDetails) => {
-    setUser(userDetails);
-    setAuthenticated(true);
-  };
-
-  let logoutHandler = () => {
-    setAuthenticated(false);
-  };
-
-  return authenticated ? (
-    <Layout Logout={logoutHandler}>
-      <Route path={Routes.Home} exact render={() => <Home User={user} />} />
+let Router = (props) => {
+  return (
+    <Layout Logout={props.Logout}>
+      <Route path={Routes.Home} exact render={() => <Home User={props.User} />} />
       <Route path={Routes.Messenger} exact render={() => "Messenger"} />
       <Route path={Routes.Compass} exact render={() => "Explore"} />
+      <Route path={Routes.Like} exact render={() => "Notifications"} />
       <Route path={Routes.Upload} exact render={() => <UploadPost />} />
       <Route
         path={Routes.Profile}
         exact
-        render={() => <Profile User={user} />}
+        render={() => <Profile User={props.User} />}
       />
     </Layout>
-  ) : (
-    <div>
-      <Authentication AuthStatus={authHandler} />
-    </div>
-  );
+  )
 };
 
-export default router;
+export default Router;

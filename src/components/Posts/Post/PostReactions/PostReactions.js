@@ -5,10 +5,10 @@ import "./PostReactions.css";
 let PostReaction = (props) => {
   let [HeartClasses, setHeartClasses] = useState("ReactionIconsHeart");
   let Like = () => {
-    if (HeartClasses == "ReactionIconsHeart") {
+    if (HeartClasses === "ReactionIconsHeart") {
       setHeartClasses("Liked");
     }
-    if (HeartClasses == "Liked") {
+    if (HeartClasses === "Liked") {
       setHeartClasses("ReactionIconsHeart");
     }
   };

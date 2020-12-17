@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FirebaseContext from "../../components/Firebase/FirebaseContext";
 import Login from "./Login/Login";
 import Signup from "./Signup/Sign-up";
 
@@ -22,15 +23,15 @@ class Auth extends Component {
 
   render() {
     return this.state.newUser ? (
-      <Signup
-        OldUser={this.LoginSignupHandler}
-        AuthenticationStatus={this.AuthenticationHandler}
-      />
+      <FirebaseContext.Consumer>
+        {firebase => <Signup firebase={firebase} OldUser={this.LoginSignupHandler} AuthenticationStatus={this.AuthenticationHandler} />
+        }
+        </FirebaseContext.Consumer>
     ) : (
-      <Login
-        NewUser={this.LoginSignupHandler}
-        AuthenticationStatus={this.AuthenticationHandler}
-      />
+      <FirebaseContext.Consumer>
+        {firebase => <Login firebase={firebase} NewUser={this.LoginSignupHandler} AuthenticationStatus={this.AuthenticationHandler} />
+        }
+      </FirebaseContext.Consumer>
     );
   }
 }

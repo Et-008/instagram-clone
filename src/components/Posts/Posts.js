@@ -38,6 +38,7 @@ class Posts extends React.Component {
                   this.setState({ collectionData: Arr });
                 }
               });
+              return true;
           });
         }
       })
@@ -51,7 +52,7 @@ class Posts extends React.Component {
         return obj.id === data.collectionId;
       });
       data.collection.data.map((image) => {
-        console.log(result);
+        // console.log(result);
         this.state.postWithImages.push(
           <Post
             key={image.id}
@@ -62,7 +63,9 @@ class Posts extends React.Component {
             Likes={image.likes}
           />
         );
+        return true;
       });
+      return true;
     });
     return (
       <Aux>
