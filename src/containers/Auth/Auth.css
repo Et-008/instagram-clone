@@ -1,0 +1,137 @@
+.Login {
+    display: none;
+}
+
+.Login_Signup_Container {
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.Login_Signup_Form {
+    min-width: 20em;
+    display: grid;
+    background-color: white;
+    border: 1px solid rgba(192, 192, 192, 0.5);
+    padding: 0.5em;
+    margin: 0.3em;
+}
+
+@media (min-width: 650px) {
+    .Login_Signup_Page {
+        display: grid;
+        grid-template-columns: 1.75fr 1fr 0.15fr;
+    }
+    .Login {
+        display: block;
+        position: relative;
+    }
+    .Mobile_Shapes {
+        width: 70%;
+        height: 450px;
+    }
+    .Mobile_Shapes:first-child {
+        display: none;
+    }
+}
+@media (min-width: 750px) {
+    .Login_Signup_Page {
+        display: grid;
+        grid-template-columns: 1.75fr 1fr 0.15fr;
+    }
+    .Login {
+        display: block;
+        position: relative;
+    }
+    .Mobile_Shapes {
+        width: 60%;
+        height: 450px;
+    }
+    .Mobile_Shapes:first-child {
+        display: block;
+    }
+}
+
+@media (min-width: 1000px) {
+    .Login_Signup_Page {
+        display: grid;
+        grid-template-columns: 1.75fr 1fr 0.65fr;
+    }
+    .Login {
+        display: block;
+        position: relative;
+    }
+    .Mobile_Shapes {
+        width: 50%;
+        height: 500px;
+    }
+}
+
+.Mobile_Shapes {
+    max-width: 300px;
+    max-height: 500px;
+    top: 90px;
+    position: absolute;
+    border: 10px solid papayawhip;
+    border-top: 80px solid papayawhip;
+    border-bottom: 70px solid papayawhip;
+    border-radius: 25px;
+    z-index: -1;
+    right: 100px;
+    box-shadow: 1px 1px 10px 1px grey;
+    transition: all 2s ease-in-out;
+}
+.Mobile_Shapes:last-child {
+    top: 100px;
+    z-index: 20;
+    right: 0;
+    border: 10px solid black;
+    border-top: 80px solid black;
+    border-bottom: 70px solid black;
+}
+.Mobile_Shapes>img {
+    width: 100%;
+    height: 100%;
+}
+.Mobile_Shapes::before {
+    content: '';
+    background-color: black;
+    width: 65px;
+    height: 2px;
+    position: absolute;
+    display: inline-block;
+    border: 0.2px solid silver;
+    z-index: 25;
+    top: -50px;
+    left: 38%;
+    border-radius: 2px;
+}
+
+.Mobile_Shapes:first-child:after {
+    content: '';
+    background-color: papayawhip;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    display: inline-block;
+    z-index: 25;
+    bottom: -60px;
+    right: 40%;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.Mobile_Shapes:last-child:after {
+    content: '';
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    display: inline-block;
+    z-index: 25;
+    bottom: -60px;
+    right: 40%;
+    border-radius: 50%;
+    border: 1px solid silver;
+}

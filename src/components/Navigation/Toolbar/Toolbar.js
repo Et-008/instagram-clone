@@ -28,11 +28,6 @@ let toolbar = (props) => {
         <nav className="ToolBarNavigationItems">
           <NavItems />
         </nav>
-        <p title="Logout" onClick={props.Logout}>
-          <Link to={Routes.Home}>
-            <img className="Icon" alt="Logout" src={Icons.Logout} />
-          </Link>
-        </p>
       </div>
     </div>
   );

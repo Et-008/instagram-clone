@@ -1,0 +1,19 @@
+.Button {
+    height: 3em;
+    width: 75%;
+    margin: 0 auto;
+    border: none;
+    border-radius: 2px;
+}
+.Blue {
+    background-color: turquoise;
+}
+.Green {
+    background-color: lightgreen;
+}
+.Blue:enabled {
+    background-color: darkturquoise;
+}
+.Green:enabled {
+    background-color: chartreuse;
+}

@@ -38,7 +38,7 @@ let UploadPost = () => {
         Title
         <input type="text"></input>
       </label>
-      <button className="UploadInput">Post</button>
+      <button type="button" onClick={alert("Hola")} className="UploadInput">Post</button>
     </div>
   );
 };
