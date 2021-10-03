@@ -88,9 +88,7 @@
     top: 100px;
     z-index: 20;
     right: 0;
-    border: 10px solid black;
-    border-top: 80px solid black;
-    border-bottom: 70px solid black;
+    border-color: black;
 }
 .Mobile_Shapes>img {
     width: 100%;

@@ -30,7 +30,7 @@ const Photos = (props) => {
                 <img
                   className="Image"
                   src={photo.urls.full}
-                  alt="Image Loading"
+                  alt="Loading"
                 />
               </div>
             </Col>

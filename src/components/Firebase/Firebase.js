@@ -19,6 +19,7 @@ var Config = {
 
 class Firebase {
   constructor() {
+    // eslint-disable-next-line
     let app = initializeApp(Config);
     this.auth = getAuth();
   }

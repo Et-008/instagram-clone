@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
-import Icons from "../../../../assets/Icons/Icons";
+// import Icons from "../../../../assets/Icons/Icons";
 import { BsHeart, BsBookmark } from "react-icons/bs";
 import {RiChat3Line} from 'react-icons/ri'
 import { FiSend } from "react-icons/fi";
@@ -14,6 +14,7 @@ let PostReaction = (props) => {
     if (props.isLiked && HeartClasses === "") {
       Like();
     }
+    // eslint-disable-next-line
   }, [props.isLiked]);
 
   let Like = () => {

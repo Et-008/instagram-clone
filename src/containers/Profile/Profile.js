@@ -5,16 +5,16 @@ import { Row, Col, Container, Tabs, Tab } from "react-bootstrap";
 import { IoSettingsOutline } from "react-icons/io5";
 import PlaceHolderProfilePic from "../../assets/Images/download.png";
 import { useEffect } from "react/cjs/react.development";
-import EmptyState from "../../assets/Images/empty-state.jpg";
+// import EmptyState from "../../assets/Images/empty-state.jpg";
 import Collections from "../../components/profile/collections/collections";
 import Photos from "../../components/profile/collections/photos";
 import EditProfile from "../../components/profile/edit-profile/edit-profile";
 
 let Profile = (props) => {
   const [othersProfile, setOthersProfile] = useState();
-  const [photos, setPhotos] = useState();
+  // const [photos, setPhotos] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [isPhotosLoading, setIsPhotosLoading] = useState(true);
+  // const [isPhotosLoading, setIsPhotosLoading] = useState(true);
   const [editTabOpen, setEditTabOpen] = useState(false);
 
   useEffect(() => {
@@ -30,23 +30,24 @@ let Profile = (props) => {
         })
         .catch((err) => console.log(err));
     }
+    // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    if (!isLoading && othersProfile.photos.length > 0) {
-      setIsPhotosLoading(true);
-      axios
-        .get(
-          `https://api.unsplash.com/users/${othersProfile.username}/photos?client_id=htn3ZJRkveEujzltUO7_r9bkczF-sy-SYLFEmZNkPhY`
-        )
-        .then((photos) => {
-          console.log(photos);
-          setPhotos(photos.data);
-          setIsPhotosLoading(false);
-        })
-        .catch((err) => console.error(err));
-    }
-  }, [isLoading]);
+  // useEffect(() => {
+  //   if (!isLoading && othersProfile.photos.length > 0) {
+  //     setIsPhotosLoading(true);
+  //     axios
+  //       .get(
+  //         `https://api.unsplash.com/users/${othersProfile.username}/photos?client_id=htn3ZJRkveEujzltUO7_r9bkczF-sy-SYLFEmZNkPhY`
+  //       )
+  //       .then((photos) => {
+  //         console.log(photos);
+  //         setPhotos(photos.data);
+  //         setIsPhotosLoading(false);
+  //       })
+  //       .catch((err) => console.error(err));
+  //   }
+  // }, [isLoading]);
 
   function toggleEdit() {
     setEditTabOpen(!editTabOpen);

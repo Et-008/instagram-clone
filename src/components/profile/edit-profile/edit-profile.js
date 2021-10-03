@@ -4,7 +4,7 @@ import axios from "axios";
 import { Col, Row } from "react-bootstrap";
 import Backdrop from "../../UI/Backdrop/Backdrop";
 import PlaceHolderProfilePic from "../../../assets/Images/download.png";
-import { TextInput, TextArea, ImageInput } from "../../UI/Inputs/Inputs";
+import { TextInput, TextArea } from "../../UI/Inputs/Inputs";
 import Button from "../../UI/Button/Button";
 import UpdateFirebase from "../../../constants/updateFirebase";
 
@@ -12,7 +12,7 @@ let EditProfile = (props) => {
   let imageUploadRef = useRef();
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
-  const [imageUri, setImageUri] = useState();
+  // const [imageUri, setImageUri] = useState();
   const [previewImage, setPreviewImage] = useState(null);
   const data = {
     name: name,
