@@ -1,22 +1,27 @@
 .PostTitle {
-  display: flex;
-  height: 60px;
-  font-size: 0.8rem;
+  display: inline-flex;
+  padding: 16px 16px;
 }
 .UserIcon {
-  width: 50px;
-  display: flexbox;
+  /* width: 50px; */
+  display: flex;
   text-align: center;
   box-sizing: border-box;
 }
 .UserId {
-  display: block;
+  display: grid;
+  align-items: center;
 }
-.DP {
-  width: 35px;
-  height: 35px;
-  align-self: center;
-  justify-self: center;
-  margin-top: 10px;
-  border-radius: 50%;
+.UserId h6,
+.UserId p {
+  margin: 0;
+}
+.UserId h6 {
+  font-size: 16px;
+  line-height: 10px;
+}
+.UserId p {
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 4px;
 }

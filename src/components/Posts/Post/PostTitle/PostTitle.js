@@ -5,13 +5,15 @@ let title = (props) => {
   return (
     <div className="PostTitle">
       <div className="UserIcon">
-        <img className='DP' alt="Title" src={props.dp} />
+        <img className="smallImg" alt="Title" src={props.dp} />
       </div>
       <div className="UserId">
-        <p>
-          <strong>{props.userName}</strong>
-          <br></br>{props.location}
-        </p>
+        <h6>{props.userName}</h6>
+        {props.location && props.location !== "" ? (
+          <p>
+            {props.location}
+          </p>
+        ) : null}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FixedBoard from "../../components/FixedBoard/FixedBoard";
 import Posts from "../../components/Posts/Posts";
-import StatusBar from "../../components/StatusBar/StatusBar";
+// import StatusBar from "../../components/StatusBar/StatusBar";
 import "./Home.css";
 
 class Home extends Component {
@@ -9,7 +9,7 @@ class Home extends Component {
     return (
       <div className="MainPage">
         <div className="Feed">
-          <StatusBar />
+          {/* <StatusBar /> */}
           <Posts />
         </div>
         <div className="SideContent">

@@ -1,0 +1,53 @@
+.FixedBoard {
+    padding-left: 24px;
+}
+.FixedBoard header {
+    width: 100%;
+    text-align: left;
+    /* display: inline-flex; */
+    /* align-items: center; */
+    padding: 10px;
+}
+.FixedBoard .List {
+    text-align: left;
+    margin: 16px auto;
+}
+.FixedBoard .List h6 {
+    color: #c6c6c6;
+    font-weight: 900;
+}
+.FixedBoard .List ul {
+    padding-left: 0;
+    list-style-type: none;
+    display: grid;
+}
+
+.FixedBoard .usersList {
+    padding: 4px 16px;
+    width: 250px;
+    text-align: left;
+    /* margin: 0 auto; */
+    cursor: pointer;
+}
+.FixedBoard .usersList .userCard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.mediumImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.smallImg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+.FixedBoard .usersList .UserName {
+    font-size: 16px;
+    line-height: 24px;
+    display: inline-flex;
+}

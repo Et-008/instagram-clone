@@ -1,9 +1,9 @@
 .Button {
     height: 3em;
-    width: 75%;
+    width: 85%;
     margin: 0 auto;
     border: none;
-    border-radius: 2px;
+    border-radius: 10px;
 }
 .Blue {
     background-color: turquoise;

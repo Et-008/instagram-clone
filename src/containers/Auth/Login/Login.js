@@ -36,7 +36,8 @@ let Login = (props) => {
         setLoginError(error_message);
       }
       else {
-        console.log("Signed in as : ", user)
+        console.log("Signed in as : ", user);
+        localStorage.setItem('authStatus', 'LoggedIn');
         return props.AuthenticationStatus(LoginDetails);
       }
     })
@@ -77,12 +78,12 @@ let Login = (props) => {
         Login
       </Button>
       {LoginError ? <h6 className="Error_Display" >{LoginError}</h6> : null}
-      <h5>
+      <p>
         Don't have an account?{" "}
         <span className="Link" style={{ cursor: "pointer" }} onClick={props.NewUser}>
           Sign-up
         </span>
-      </h5>
+      </p>
     </Aux>
   );
 };

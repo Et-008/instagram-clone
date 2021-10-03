@@ -5,22 +5,41 @@ import PostImage from "./PostImage/PostImage";
 import Comments from "./Comments/Comments";
 import NewComment from "../Post/Comments/NewComment/NewComment";
 import "./Post.css";
+import { Link } from "react-router-dom";
 
 class Post extends Component {
   state = {
     value: "",
-    postButtonStatus: false
+    postButtonStatus: false,
+    likes: this.props.Likes,
+    isLiked: false,
   };
   render() {
     return (
       <div className="Post">
-        <PostTitle dp={this.props.displaypic} userName={this.props.userName} location={this.props.location} />
-        <PostImage ImageSource={this.props.ImageSource} />
-        <PostReactions NoOfLikes={this.props.Likes} />
-        <Comments
-          PostSource={this.props.ImageSource}
-          NoOfComments={0}
+        <Link
+          to={{
+            pathname: `/account/${this.props.profileName}`,
+          }}
+        >
+          <PostTitle
+            dp={this.props.displaypic}
+            userName={this.props.userName}
+            location={this.props.location}
+          />
+        </Link>
+        <PostImage DoubleClick={() => {
+          this.setState({...this.state, isLiked: true})
+          }} ImageSource={this.props.ImageSource} />
+        <PostReactions
+          NoOfLikes={this.state.likes}
+          isLiked={this.state.isLiked}
+          SetDisliked={() => {
+            this.setState({...this.state, isLiked: false})
+          }}
+          BookmarkImage={this.props.BookmarkImage}
         />
+        <Comments PostSource={this.props.ImageSource} NoOfComments={0} />
         <hr />
         <NewComment />
       </div>

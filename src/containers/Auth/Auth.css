@@ -15,7 +15,8 @@
     display: grid;
     background-color: white;
     border: 1px solid rgba(192, 192, 192, 0.5);
-    padding: 0.5em;
+    border-radius: 5px;
+    padding: 0.5em 0.2em;
     margin: 0.3em;
 }
 
@@ -65,13 +66,13 @@
     }
     .Mobile_Shapes {
         width: 50%;
-        height: 500px;
+        height: auto;
     }
 }
 
 .Mobile_Shapes {
     max-width: 300px;
-    max-height: 500px;
+    /* max-height: 500px; */
     top: 90px;
     position: absolute;
     border: 10px solid papayawhip;

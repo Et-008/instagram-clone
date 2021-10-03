@@ -1,26 +1,57 @@
-import React, {useState} from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import "./App.css";
-import AuthRoutes from './containers/Router/AuthRouter';
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import AuthRoutes from "./containers/Router/AuthRouter";
 import Router from "./containers/Router/Router";
+// import FirebaseContext from "./components/Firebase/FirebaseContext";
+import "./App.css";
 
 function App() {
-  let [authenticated, setAuthenticated] = useState(false);
-  let [user, setUser] = useState({});
+  let firebaseApp = getAuth();
+  let [user, setUser] = useState();
+  let [AuthStatus, setAuthStatus] = useState();
 
-  let authHandler = (userDetails) => {
-    setUser(userDetails);
-    setAuthenticated(true);
+  useEffect(() => {
+    // let userData = async () => {
+      getUserData();
+    // }
+  });
+
+  function getUserData() {
+    onAuthStateChanged(firebaseApp, (user) => {
+      if (user) {
+        setUser(user)
+      } else {
+        console.log("no user Found");
+      }
+      authHandler();
+    });
+  }
+
+  let authHandler = () => {
+    // AuthStatus !== localStorage.getItem("authStatus") && setAuthStatus(localStorage.getItem("authStatus"));
+    setAuthStatus(localStorage.getItem("authStatus"));
   };
 
   let logoutHandler = () => {
-    setAuthenticated(false);
+    localStorage.getItem("authStatus") === null && setAuthStatus("");
+    signOut(firebaseApp)
+      .then(() => {
+        localStorage.removeItem("authStatus");
+      })
+      .catch((err) => console.log(err));
   };
+
+  console.log("App.js Auth status", AuthStatus);
 
   return (
     <BrowserRouter>
       <div className="App">
-        {authenticated ? <Router User={user} Logout={logoutHandler} /> : <AuthRoutes AuthStatus={authHandler} /> }
+        {AuthStatus === ("LoggedIn" || "SignedUp") ? (
+          <Router Logout={logoutHandler} user={user} />
+        ) : (
+          <AuthRoutes Authenticated={authHandler} />
+        )}
       </div>
     </BrowserRouter>
   );

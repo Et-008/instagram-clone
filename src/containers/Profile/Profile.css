@@ -1,32 +1,40 @@
 .Profile {
   width: 70%;
-  height: 900px;
+  height: auto;
   display: block;
-  border: 1px solid red;
-  margin: 10px auto;
+  margin: 40px auto;
 }
 .ProfileDetails {
   display: flex;
   padding: 10px 0;
-  border: 1px solid red;
-  justify-content: space-around;
   align-content: center;
 }
+.ProfileDetails .Right {
+  display: inline-block;
+  text-align: left;
+  margin-left: 48px;
+}
 .ProfileDetails img {
-  width: 15%;
+  width: 150px;
   height: 150px;
   display: block;
-  border: 1px solid blue;
   border-radius: 50%;
 }
 .ProfileDetails p {
   margin: 0;
   padding: 0;
-  width: 60%;
-  height: 250px;
   display: block;
-  border: 1px solid blue;
   text-align: left;
+}
+.ProfileDetails .Connections {
+  display: flex;
+  margin: 24px 0;
+}
+.ProfileDetails .Connections p {
+  margin-right: 40px;
+}
+.ProfileDetails .Connections p span {
+  font-weight: 900;
 }
 .ProfileDetails p a {
   display: block;
@@ -34,6 +42,48 @@
 }
 .UserName {
   font-size: 1.5rem;
+  display: block;
+}
+.GrideView {
+  width: 70vw;
+  height: auto;
+  margin: 40px auto;
+  padding: 24px;
+}
+.GrideView .row div {
+  margin-bottom: 24px;
+}
+.GrideView .Image {
+  width: 100%;
+  height: auto;
+}
+.Empty-State {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  text-align: center;
+  background-image: url("../../assets/Images/empty-state.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.Empty-State span {
+  position: absolute;
+  bottom: 24px;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-weight: 700;
+}
+.Empty-State img {
+  position: absolute;
+  height: 100%;
+}
+.Empty-State a {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 .Test {
   margin: 10px;

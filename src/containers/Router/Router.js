@@ -9,18 +9,29 @@ import Profile from "../Profile/Profile";
 let Router = (props) => {
   return (
     <Layout Logout={props.Logout}>
-      <Route path={Routes.Home} exact render={() => <Home User={props.User} />} />
+      <Route
+        path={Routes.Home}
+        exact
+        render={() => <Home User={props.user} />}
+      />
       <Route path={Routes.Messenger} exact render={() => "Messenger"} />
       <Route path={Routes.Compass} exact render={() => "Explore"} />
       <Route path={Routes.Like} exact render={() => "Notifications"} />
       <Route path={Routes.Upload} exact render={() => <UploadPost />} />
       <Route
-        path={Routes.Profile}
+        path={Routes.MyProfile}
         exact
-        render={() => <Profile User={props.User} />}
+        render={() => <Profile User={props.user} />}
+      />
+      <Route
+        path={`${Routes.OthersProfile}/:userName`}
+        exact
+        render={properties => {
+          return <Profile OthersProfile User={{displayName: properties.match.params.userName}} />;
+        }}
       />
     </Layout>
-  )
+  );
 };
 
 export default Router;

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Firebase from "./components/Firebase/Firebase";
 import FirebaseContext from "./components/Firebase/FirebaseContext";
 import * as serviceWorker from "./serviceWorker";

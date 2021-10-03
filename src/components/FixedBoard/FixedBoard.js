@@ -1,28 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import PlaceHolderProfilePic from "../../assets/Images/download.png";
 import "./FixedBoard.css";
 
-let fixedboard = (props) => {
+let Fixedboard = (props) => {
+  const [users, setUsers] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.unsplash.com/collections/?client_id=htn3ZJRkveEujzltUO7_r9bkczF-sy-SYLFEmZNkPhY"
+      )
+      .then((response) => {
+        setUsers(response.data.slice(0, 5));
+        setIsLoading(false);
+        console.log(response);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <aside className="FixedBoard">
       <div>
-        <div>
-          <header>{props.User.name}</header>
-        </div>
+        <header>
+          <img
+            className="mediumImg"
+            alt="ProfilePic"
+            src={PlaceHolderProfilePic}
+          />
+          <h5>{props.User.displayName}</h5>
+        </header>
         <div className="List">
-          <div>
-            <p>
-              <strong>Recommended</strong> See All
-            </p>
-          </div>
-          <div>
-            <ul>
-              <li>user1_Name</li>
-              <li>user2_Name</li>
-              <li>user3_Name</li>
-              <li>user4_Name</li>
-              <li>user5_Name</li>
-            </ul>
-          </div>
+          <h6>Recommended See All</h6>
+          <ul>
+            {isLoading
+              ? null
+              : users.map((data, i) => {
+                  return (
+                    <li key={i} className="usersList">
+                      <Link
+                        to={{
+                          pathname: `/account/${data.user.username}`,
+                        }}
+                      >
+                        <div className="userCard">
+                          <img
+                            className="smallImg"
+                            src={data.user.profile_image.large}
+                            alt={"user icon"}
+                          />
+                          <p className="UserName">{data.user.name}</p>
+                        </div>
+                      </Link>
+                    </li>
+                  );
+                })}
+          </ul>
         </div>
         <div>
           About, Help, Press, Contact, API, Jobs, Privacy
@@ -39,4 +73,4 @@ let fixedboard = (props) => {
   );
 };
 
-export default fixedboard;
+export default Fixedboard;

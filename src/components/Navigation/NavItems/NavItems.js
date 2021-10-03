@@ -49,7 +49,7 @@ let navitems = (props) => {
         </Link>
       </NavItem>
       <NavItem>
-        <Link to={Routes.Profile}>
+        <Link to={Routes.MyProfile}>
           <img alt="Icon" className="Icon" title="Profile" src={Icons.User} />
         </Link>
       </NavItem>

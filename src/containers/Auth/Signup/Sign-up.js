@@ -18,14 +18,17 @@ let Signup = (props) => {
       password: Password,
       confirmPassword: ConfirmPassword
     };
-    props.firebase.createNewUser(SignupDetails.email, SignupDetails.password)
-    .then(user => console.log("Signed up as : " + user))
+    props.firebase.createNewUser(SignupDetails.email, SignupDetails.password, SignupDetails.name)
+    .then(user => {
+      console.log("Sign up Success")
+      localStorage.setItem('authStatus', 'SignedUp');
+    })
     .catch(err => console.error("Sign up error" + err))
-    return props.AuthenticationStatus(SignupDetails);
   };
       return (
         <Aux>
-          <h6>Sign up to see photos and videos from your friends.</h6>
+          <p style={{fontSize: "12px", marginBottom: 0}}>Sign up to view, like and save photos</p>
+          <p style={{fontSize: "12px", marginBottom: 0}}>All pics from <strong><a href="https://unsplash.com/">Unsplash.com</a></strong></p>
           <input
             className="Input_Areas"
             value={Name}
@@ -38,7 +41,7 @@ let Signup = (props) => {
           <input
             className="Input_Areas"
             value={Email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
             type="text"
             name="email"
             placeholder="Email-Id"
@@ -89,12 +92,12 @@ let Signup = (props) => {
           >
             Sign-up
           </Button>
-          <h5>
+          <p>
             Already have an account?{" "}
             <span className="Link" style={{ cursor: "pointer" }} onClick={props.OldUser}>
               Login
             </span>
-          </h5>
+          </p>
         </Aux>
   )
 };

@@ -35,7 +35,7 @@ class Auth extends Component {
 
   AuthenticationHandler = (Details) => {
     console.log(Details);
-    this.props.AuthStatus(Details);
+    this.props.Authenticated();
   };
 
   render() {
@@ -51,7 +51,7 @@ class Auth extends Component {
         </div>
       <div className="Login_Signup_Container">
         <div className="Login_Signup_Form">
-          <h2><i>Instacam</i></h2>
+          <h4>Instacam</h4>
           {this.state.newUser ? (
           <FirebaseContext.Consumer>
             {firebase => <Signup firebase={firebase} OldUser={this.LoginSignupHandler} AuthenticationStatus={this.AuthenticationHandler} />

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 //import Images from "../../assets/Images/Images";
+import { getDatabase, ref, push, set } from "firebase/database";
 import Post from "./Post/Post";
 import Aux from "../../hoc/Aux";
 import "./Posts.css";
@@ -10,7 +11,7 @@ class Posts extends React.Component {
     postWithImages: [],
     images: [],
     collections: [],
-    collectionData: []
+    collectionData: [],
   };
   componentDidMount() {
     axios
@@ -31,14 +32,14 @@ class Posts extends React.Component {
               .then((res) => {
                 let data = {
                   collectionId: collection.id,
-                  collection: res
+                  collection: res,
                 };
                 Arr.push(data);
                 if (Arr.length > 9) {
                   this.setState({ collectionData: Arr });
                 }
               });
-              return true;
+            return true;
           });
         }
       })
@@ -46,21 +47,40 @@ class Posts extends React.Component {
         console.log(error);
       });
   }
+
+  Bookmark(imageId) {
+    const db = getDatabase()
+    const postListRef = ref(db, 'posts');
+    const newPostRef = push(postListRef);
+    set(newPostRef, {
+      bookmarks: [imageId]
+    })
+    console.log(imageId);
+    // axios
+    //   .get(
+    //     `https://api.unsplash.com/photos/${imageId}?client_id=htn3ZJRkveEujzltUO7_r9bkczF-sy-SYLFEmZNkPhY`
+    //   )
+    //   .then((img) => {
+    //     console.log(img);
+    //   })
+    //   .catch((err) => console.error(err));
+  }
   render() {
     this.state.collectionData.map((data) => {
       var result = this.state.collections.find((obj) => {
         return obj.id === data.collectionId;
       });
-      data.collection.data.map((image) => {
-        // console.log(result);
+      data.collection.data.map((image, i) => {
         this.state.postWithImages.push(
           <Post
-            key={image.id}
+            key={image.id + i}
             ImageSource={image.urls.raw}
             displaypic={result.user.profile_image.small}
             location={result.user.location}
             userName={result.user.first_name + " " + result.user.last_name}
+            profileName={result.user.username}
             Likes={image.likes}
+            BookmarkImage={() => this.Bookmark(image.id)}
           />
         );
         return true;
@@ -73,17 +93,18 @@ class Posts extends React.Component {
           {this.state.postWithImages.length ? (
             this.state.postWithImages
           ) : (
-            <Post
-              ImageSource={
-                "https://i.pinimg.com/originals/3a/7e/77/3a7e77196fc3bdcac8807c1c736a3d0f.jpg"
-              }
-              displaypic={
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx7FfWrqJ5ro7SdxlBsnmCo_mwrnRly5mHUg&usqp=CAU"
-              }
-              location={"No Place"}
-              userName="Network Error"
-              Likes="0"
-            />
+            <div className="lds-dual-ring"></div>
+            // <Post
+            //   ImageSource={
+            //     "https://i.pinimg.com/originals/3a/7e/77/3a7e77196fc3bdcac8807c1c736a3d0f.jpg"
+            //   }
+            //   displaypic={
+            //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx7FfWrqJ5ro7SdxlBsnmCo_mwrnRly5mHUg&usqp=CAU"
+            //   }
+            //   location={"No Place"}
+            //   userName="Network Error"
+            //   Likes="0"
+            // />
           )}
         </div>
         <div className="Footer">
