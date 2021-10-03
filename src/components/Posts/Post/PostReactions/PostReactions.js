@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import React, { useEffect, useState } from "react";
 // import Icons from "../../../../assets/Icons/Icons";
 import { BsHeart, BsBookmark } from "react-icons/bs";
-import {RiChat3Line} from 'react-icons/ri'
+import { RiChat3Line } from "react-icons/ri";
 import { FiSend } from "react-icons/fi";
 import "./PostReactions.css";
 

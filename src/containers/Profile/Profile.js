@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import axios from "axios";
 import { Row, Col, Container, Tabs, Tab } from "react-bootstrap";
 import { IoSettingsOutline } from "react-icons/io5";
 import PlaceHolderProfilePic from "../../assets/Images/download.png";
-import { useEffect } from "react/cjs/react.development";
 // import EmptyState from "../../assets/Images/empty-state.jpg";
 import Collections from "../../components/profile/collections/collections";
 import Photos from "../../components/profile/collections/photos";
