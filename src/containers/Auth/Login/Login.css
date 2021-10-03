@@ -2,10 +2,9 @@
   color: black;
   opacity: 0.5;
 }
-.Input_Areas {
+.Input_Areas, .Text_Areas {
   border: 1px solid rgba(192, 192, 192, 0.5);
   border-radius: 2.5px;
-  height: 3em;
   width: 85%;
   padding: 0 10px;
   border-radius: 10px;
@@ -15,7 +14,15 @@
   background: rgb(248, 248, 255);
   box-sizing: border-box;
 }
-.Input_Areas:focus {
+.Input_Areas {
+  height: 3em;
+}
+.Text_Areas {
+  height: 6em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.Input_Areas:focus, .Text_Areas:focus {
   outline: none;
   border: 1px solid rgba(142, 142, 142, 1);
 }

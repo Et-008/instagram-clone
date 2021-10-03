@@ -1,0 +1,44 @@
+.PopupWindow {
+  position: absolute;
+  z-index: 1100;
+  top: 50%;
+  left: 50%;
+  width: 50vw;
+  min-width: 400px;
+  padding: 40px 24px;
+  height: auto;
+  min-height: 600px;
+  background: #ffffff;
+  border: 1px solid #666666;
+  border-radius: 10px;
+  transform: translate(-50%, 0);
+}
+.PopupWindow .ProfilePic {
+  cursor: pointer;
+  position: relative;
+}
+.PopupWindow .ProfilePic:hover::after {
+  width: 100%;
+}
+.PopupWindow .ProfilePic:hover::before {
+  display: block;
+}
+.PopupWindow .ProfilePic::before {
+  top: 50%;
+  left: 40%;
+  width: 0;
+  display: none;
+  position: absolute;
+  transform: translate(0, -50%);
+  content: url("../../../assets/Icons/pencil-svgrepo-com.svg");
+}
+.PopupWindow .ProfilePic::after {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  content: "";
+  border-radius: 50%;
+  background: #66666680;
+  position: absolute;
+}

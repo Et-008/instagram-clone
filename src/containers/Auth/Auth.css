@@ -72,7 +72,7 @@
 
 .Mobile_Shapes {
     max-width: 300px;
-    /* max-height: 500px; */
+    min-height: 400px;
     top: 90px;
     position: absolute;
     border: 10px solid papayawhip;

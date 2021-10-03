@@ -20,9 +20,9 @@ let toolbar = (props) => {
         <div className="MobileFloatIcon">
           <p><img className="Icon" alt="Search" src={Icons.Search} /></p>
           <p title="Logout" onClick={props.Logout}>
-            <Link to={Routes.Home}>
+            {/* <Link to={Routes.Home}> */}
               <img className="Icon" alt="Logout" src={Icons.Logout} />
-            </Link>
+            {/* </Link> */}
           </p>
         </div>
         <nav className="ToolBarNavigationItems">

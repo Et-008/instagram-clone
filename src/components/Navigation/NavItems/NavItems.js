@@ -6,14 +6,18 @@ import "./NavItems.css";
 import * as Routes from "../../../constants/routes";
 
 let navitems = (props) => {
+  function toTheTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
   return (
     <ul className="NavItems">
       <NavItem>
-        <Link to={Routes.Home}>
+        <Link onClick={toTheTop} to={Routes.Home}>
           <img alt="Icon" className="Icon" title="Home" src={Icons.Home} />
         </Link>
       </NavItem>
-      <NavItem view={"WebsiteView"}>
+      {/* <NavItem view={"WebsiteView"}>
         <Link to={Routes.Messenger}>
           <img
             alt="Icon"
@@ -22,8 +26,8 @@ let navitems = (props) => {
             src={Icons.Messenger}
           />
         </Link>
-      </NavItem>
-      <NavItem>
+      </NavItem> */}
+      {/* <NavItem>
         <Link to={Routes.Compass}>
           <img
             alt="Icon"
@@ -32,13 +36,13 @@ let navitems = (props) => {
             src={Icons.Compass}
           />
         </Link>
-      </NavItem>
+      </NavItem> */}
       <NavItem view={"MobileView"}>
         <Link to={Routes.Upload}>
           <img alt="Icon" className="Icon" title="Upload" src={Icons.Plus} />
         </Link>
       </NavItem>
-      <NavItem>
+      {/* <NavItem>
         <Link to={Routes.Like}>
           <img
             alt="Icon"
@@ -47,7 +51,7 @@ let navitems = (props) => {
             src={Icons.Heart}
           />
         </Link>
-      </NavItem>
+      </NavItem> */}
       <NavItem>
         <Link to={Routes.MyProfile}>
           <img alt="Icon" className="Icon" title="Profile" src={Icons.User} />

@@ -1,19 +1,23 @@
 .Button {
-    height: 3em;
-    width: 85%;
-    margin: 0 auto;
-    border: none;
-    border-radius: 10px;
+  height: 3em;
+  width: 85%;
+  margin: 0 auto;
+  border: none;
+  border-radius: 10px;
 }
 .Blue {
-    background-color: turquoise;
+  background-color: turquoise;
+}
+.Blue:hover,
+.Blue:enabled:hover {
+    background-color: #40e0d080;
 }
 .Green {
-    background-color: lightgreen;
+  background-color: lightgreen;
 }
 .Blue:enabled {
-    background-color: darkturquoise;
+  background-color: darkturquoise;
 }
 .Green:enabled {
-    background-color: chartreuse;
+  background-color: chartreuse;
 }

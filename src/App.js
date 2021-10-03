@@ -34,10 +34,12 @@ function App() {
   };
 
   let logoutHandler = () => {
-    localStorage.getItem("authStatus") === null && setAuthStatus("");
+    // localStorage.getItem("authStatus") === null && setAuthStatus("");
     signOut(firebaseApp)
       .then(() => {
         localStorage.removeItem("authStatus");
+        setAuthStatus("");
+        window.history.pushState('home', 'login/signup', '/');
       })
       .catch((err) => console.log(err));
   };

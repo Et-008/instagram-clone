@@ -18,3 +18,11 @@ hr {
   border-color: grey;
   opacity: 0.25;
 }
+@media (max-width: 568px) {
+  .Post {
+    border: 1px solid rgba(179, 176, 176, 0.5);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
