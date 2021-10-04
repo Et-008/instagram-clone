@@ -10,7 +10,7 @@ class Home extends Component {
       <div className="MainPage">
         <div className="Feed">
           {/* <StatusBar /> */}
-          <Posts />
+          <Posts User={this.props.User} />
         </div>
         <div className="SideContent">
           <FixedBoard User={this.props.User} />

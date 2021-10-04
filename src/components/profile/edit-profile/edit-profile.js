@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./edit-profile.css";
 import axios from "axios";
 import { Col, Row } from "react-bootstrap";
@@ -10,8 +10,8 @@ import UpdateFirebase from "../../../constants/updateFirebase";
 
 let EditProfile = (props) => {
   let imageUploadRef = useRef();
-  const [name, setName] = useState("");
-  const [bio, setBio] = useState("");
+  const [name, setName] = useState(props.myProfileData.name);
+  const [bio, setBio] = useState(props.myProfileData.bio);
   // const [imageUri, setImageUri] = useState();
   const [previewImage, setPreviewImage] = useState(null);
   const data = {
@@ -21,7 +21,12 @@ let EditProfile = (props) => {
   };
 
   function submit() {
+    // if(currentData && currentData !== null) {
+    // let userData = UpdateFirebase.getUserData(props.userId)
+    // console.log(userData)
+    // let updatedData = {...userData}
     UpdateFirebase.writeUserData(props.userId, data, props.toggleEdit);
+    // }
   }
 
   function openImageUpload() {
@@ -77,8 +82,8 @@ let EditProfile = (props) => {
             </div>
           </Col>
           <Col>
-            <TextInput value={name} onChange={(val) => setName(val)} />
-            <TextArea value={bio} onChange={(val) => setBio(val)} />
+            <TextInput value={name} placeholder="Name" onChange={(val) => setName(val)} />
+            <TextArea value={bio} placeholder="Bio" onChange={(val) => setBio(val)} />
           </Col>
         </Row>
         <Row>

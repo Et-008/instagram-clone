@@ -4,14 +4,16 @@ import axios from "axios";
 import { Row, Col, Container, Tabs, Tab } from "react-bootstrap";
 import { IoSettingsOutline } from "react-icons/io5";
 import PlaceHolderProfilePic from "../../assets/Images/download.png";
-// import EmptyState from "../../assets/Images/empty-state.jpg";
 import Collections from "../../components/profile/collections/collections";
 import Photos from "../../components/profile/collections/photos";
 import EditProfile from "../../components/profile/edit-profile/edit-profile";
+import UpdateFirebase from "../../constants/updateFirebase";
 
 let Profile = (props) => {
+  const [myProfile, setMyProfile] = useState();
   const [othersProfile, setOthersProfile] = useState();
-  // const [photos, setPhotos] = useState();
+  const [savedPhotos, setSavedPhotos] = useState([]);
+  const [likedImages, setLikedImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   // const [isPhotosLoading, setIsPhotosLoading] = useState(true);
   const [editTabOpen, setEditTabOpen] = useState(false);
@@ -28,25 +30,28 @@ let Profile = (props) => {
           setIsLoading(false);
         })
         .catch((err) => console.log(err));
+    } else {
+      UpdateFirebase.getSavedPosts(props.User.uid, savedPhotosHandler);
+      UpdateFirebase.getLikedPosts(props.User.uid, likedPhotosHandler);
     }
     // eslint-disable-next-line
   }, []);
 
-  // useEffect(() => {
-  //   if (!isLoading && othersProfile.photos.length > 0) {
-  //     setIsPhotosLoading(true);
-  //     axios
-  //       .get(
-  //         `https://api.unsplash.com/users/${othersProfile.username}/photos?client_id=htn3ZJRkveEujzltUO7_r9bkczF-sy-SYLFEmZNkPhY`
-  //       )
-  //       .then((photos) => {
-  //         console.log(photos);
-  //         setPhotos(photos.data);
-  //         setIsPhotosLoading(false);
-  //       })
-  //       .catch((err) => console.error(err));
-  //   }
-  // }, [isLoading]);
+  useEffect(() => {
+    UpdateFirebase.getUserData(props.User.uid, setMyProfile);
+  }, [editTabOpen]);
+
+  function savedPhotosHandler(image) {
+    let savedPhotoArray = savedPhotos;
+    savedPhotoArray.push(image);
+    setSavedPhotos(savedPhotoArray);
+  }
+
+  function likedPhotosHandler(image) {
+    let likedPhotoArray = [...likedImages];
+    likedPhotoArray.push(image);
+    setLikedImages(likedPhotoArray);
+  }
 
   function toggleEdit() {
     setEditTabOpen(!editTabOpen);
@@ -147,7 +152,13 @@ let Profile = (props) => {
   return (
     <>
       <div className="Profile MyProfile">
-        {editTabOpen ? <EditProfile userId={props.User.uid} toggleEdit={toggleEdit} /> : null}
+        {editTabOpen ? (
+          <EditProfile
+            myProfileData={myProfile}
+            userId={props.User.uid}
+            toggleEdit={toggleEdit}
+          />
+        ) : null}
         <Container>
           <div className="ProfileDetails">
             <Row>
@@ -163,9 +174,104 @@ let Profile = (props) => {
                     <IoSettingsOutline /> Edit profile
                   </button>
                 </div>
+                <div className="Connections">
+                  <p>
+                    <span>0</span> Collections
+                  </p>
+                  <p>
+                    <span>0</span> Followers
+                  </p>
+                  <p>
+                    <span>0</span> Following
+                  </p>
+                  <p>
+                    <span>0</span> Photos
+                  </p>
+                </div>
               </Col>
             </Row>
+            {myProfile && myProfile !== null ? (
+              <Row className="Bio">
+                <Col sm={3}></Col>
+                <Col>
+                  <div>
+                    {myProfile.name ? <h3>{myProfile.name}</h3> : null}
+                    {/* <p>
+                    {othersProfile.badge !== null && othersProfile.badge.title}
+                  </p> */}
+                    {myProfile.bio !== null ? <p>{myProfile.bio}</p> : null}
+                    {/* <p>
+                    <a href={othersProfile.links.html}>
+                      {othersProfile.links.html}
+                    </a>
+                  </p> */}
+                  </div>
+                </Col>
+              </Row>
+            ) : null}
           </div>
+          <Tabs
+            defaultActiveKey="saved"
+            id="uncontrolled-tab-example"
+            className="mb-3"
+          >
+            <Tab eventKey="saved" title="Saved">
+              {savedPhotos ? (
+                <div className="GrideView Images">
+                  <Row>
+                    {savedPhotos.map((photo, i) => {
+                      return (
+                        <Col key={i} lg={4}>
+                          <div>
+                            <img
+                              className="Image"
+                              src={photo.url}
+                              alt="Loading"
+                            />
+                          </div>
+                        </Col>
+                      );
+                    })}
+                  </Row>
+                </div>
+              ) : (
+                <div className="Empty-State">
+                  <span>No Images Available</span>
+                  <a href="https://www.freepik.com/vectors/data">
+                    Data vector created by stories - www.freepik.com
+                  </a>
+                </div>
+              )}
+            </Tab>
+            <Tab eventKey="liked" title="Liked">
+              {likedImages ? (
+                <div className="GrideView Images">
+                  <Row>
+                    {likedImages.map((photo, i) => {
+                      return (
+                        <Col key={i} lg={4}>
+                          <div>
+                            <img
+                              className="Image"
+                              src={photo.url}
+                              alt="Loading"
+                            />
+                          </div>
+                        </Col>
+                      );
+                    })}
+                  </Row>
+                </div>
+              ) : (
+                <div className="Empty-State">
+                  <span>No Images Available</span>
+                  <a href="https://www.freepik.com/vectors/data">
+                    Data vector created by stories - www.freepik.com
+                  </a>
+                </div>
+              )}
+            </Tab>
+          </Tabs>
         </Container>
       </div>
     </>

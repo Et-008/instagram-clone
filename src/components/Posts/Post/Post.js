@@ -33,11 +33,9 @@ class Post extends Component {
           }} ImageSource={this.props.ImageSource} />
         <PostReactions
           NoOfLikes={this.state.likes}
-          isLiked={this.state.isLiked}
-          SetDisliked={() => {
-            this.setState({...this.state, isLiked: false})
-          }}
-          BookmarkImage={this.props.BookmarkImage}
+          ImageId={this.props.ImageId}
+          UserId={this.props.UserId}
+          ImageSource={this.props.ImageSource}
         />
         <Comments PostSource={this.props.ImageSource} NoOfComments={0} />
         <hr />

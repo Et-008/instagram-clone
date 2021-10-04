@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "axios";
-//import Images from "../../assets/Images/Images";
-import { getDatabase, ref, push, set } from "firebase/database";
 import Post from "./Post/Post";
 import Aux from "../../hoc/Aux";
 import "./Posts.css";
 
 class Posts extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   state = {
     postWithImages: [],
     images: [],
@@ -19,7 +20,7 @@ class Posts extends React.Component {
         "https://api.unsplash.com/collections/?client_id=htn3ZJRkveEujzltUO7_r9bkczF-sy-SYLFEmZNkPhY"
       )
       .then((response) => {
-        this.setState({ collections: response.data });
+        this.setState({...this.state, collections: response.data });
         if (this.state.collections) {
           let Arr = [];
           this.state.collections.map((collection) => {
@@ -36,7 +37,7 @@ class Posts extends React.Component {
                 };
                 Arr.push(data);
                 if (Arr.length > 9) {
-                  this.setState({ collectionData: Arr });
+                  this.setState({...this.state, collectionData: Arr });
                 }
               });
             return true;
@@ -47,24 +48,7 @@ class Posts extends React.Component {
         console.log(error);
       });
   }
-
-  Bookmark(imageId) {
-    const db = getDatabase()
-    const postListRef = ref(db, 'posts');
-    const newPostRef = push(postListRef);
-    set(newPostRef, {
-      bookmarks: [imageId]
-    })
-    console.log(imageId);
-    // axios
-    //   .get(
-    //     `https://api.unsplash.com/photos/${imageId}?client_id=htn3ZJRkveEujzltUO7_r9bkczF-sy-SYLFEmZNkPhY`
-    //   )
-    //   .then((img) => {
-    //     console.log(img);
-    //   })
-    //   .catch((err) => console.error(err));
-  }
+  
   render() {
     this.state.collectionData.map((data) => {
       var result = this.state.collections.find((obj) => {
@@ -73,14 +57,15 @@ class Posts extends React.Component {
       data.collection.data.map((image, i) => {
         this.state.postWithImages.push(
           <Post
-            key={image.id + i}
-            ImageSource={image.urls.raw}
+            key={image.id + i + new Date().getMilliseconds()}
+            ImageSource={image.urls.full}
             displaypic={result.user.profile_image.small}
             location={result.user.location}
             userName={result.user.first_name + " " + result.user.last_name}
             profileName={result.user.username}
             Likes={image.likes}
-            BookmarkImage={() => this.Bookmark(image.id)}
+            ImageId={image.id}
+            UserId={this.props.User.uid}
           />
         );
         return true;

@@ -3,6 +3,7 @@ import React from "react";
 export const TextInput = (props) => (
   <input
     value={props.value}
+    placeholder={props.placeholder}
     onChange={(e) => props.onChange(e.target.value)}
     className="Input_Areas"
     type="text"
@@ -12,6 +13,7 @@ export const TextInput = (props) => (
 export const TextArea = (props) => (
   <textarea
     value={props.value}
+    placeholder={props.placeholder}
     onChange={(e) => props.onChange(e.target.value)}
     className="Text_Areas"
     type="text"

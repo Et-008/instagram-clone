@@ -4,32 +4,72 @@ import { BsHeart, BsBookmark } from "react-icons/bs";
 import { RiChat3Line } from "react-icons/ri";
 import { FiSend } from "react-icons/fi";
 import "./PostReactions.css";
+import UpdateFirebase from "../../../../constants/updateFirebase";
 
 let PostReaction = (props) => {
-  let [HeartClasses, setHeartClasses] = useState("");
-  const [bookmark, setBookmark] = useState(false);
+  // console.log(props);
+  const [savedImages, setSavedImages] = useState([]);
+  const [isSavedImage, setIsSavedImage] = useState(false);
+  const [isLikedImage, setIsLikedImage] = useState(false);
+  const [likedImages, setLikedImages] = useState([]);
+
+  
+  useEffect(() => {
+    UpdateFirebase.getSavedPosts(props.UserId, (image) =>
+      savedPhotosHandler(image)
+    );
+    UpdateFirebase.getLikedPosts(props.UserId, (image) =>
+      likedPhotosHandler(image)
+    );
+  }, []);
 
   useEffect(() => {
-    if (props.isLiked && HeartClasses === "") {
-      Like();
-    }
-    // eslint-disable-next-line
-  }, [props.isLiked]);
+    let imgStatus =
+      likedImages.length > 0 &&
+      likedImages.find((likedImage) => {
+        return likedImage.id === props.ImageId;
+      });
+    setIsLikedImage(imgStatus);
+  }, [likedImages]);
+
+  useEffect(() => {
+    let imgStatus =
+      savedImages.length > 0 &&
+      savedImages.find((savedPhoto) => {
+        return savedPhoto.id === props.ImageId;
+      });
+    setIsSavedImage(imgStatus);
+  }, [savedImages]);
+
+  function savedPhotosHandler(image) {
+    let savedPhotoArray = [...savedImages];
+    savedPhotoArray.push(image);
+    setSavedImages(savedPhotoArray);
+  }
+
+  function likedPhotosHandler(image) {
+    let likedPhotoArray = [...likedImages];
+    likedPhotoArray.push(image);
+    setLikedImages(likedPhotoArray);
+  }
 
   let Like = () => {
-    if (HeartClasses === "") {
-      setHeartClasses("Liked");
-    }
-    if (HeartClasses === "Liked") {
-      setHeartClasses("");
-      props.SetDisliked();
+    if (!isLikedImage) {
+      UpdateFirebase.likePosts(props.UserId, props.ImageId, props.ImageSource)
     }
   };
+
+  let Save = () => {
+    if (!isSavedImage) {
+      UpdateFirebase.bookmarkPosts(props.UserId, props.ImageId, props.ImageSource)
+    }
+  };
+
   return (
     <div className="PostReactions">
       <div className="ReactionIconsDiv">
         {/* <div id="heart" onClick={() => Like()} className={HeartClasses}></div> */}
-        <div onClick={() => Like()} className={`ReactionIcons ${HeartClasses}`}>
+        <div onClick={Like} className={`ReactionIcons ${isLikedImage && "Liked"}`}>
           {/* {HeartClasses === "Liked" ? <FcLike /> : <BsHeart />} */}
           <BsHeart />
         </div>
@@ -40,11 +80,8 @@ let PostReaction = (props) => {
           <FiSend />
         </div>
         <div
-          onClick={() => {
-            setBookmark(!bookmark);
-            props.BookmarkImage();
-          }}
-          className={`ReactionIcons IconsRight ${bookmark && "Bookmarked"}`}
+          onClick={Save}
+          className={`ReactionIcons IconsRight ${isSavedImage && "Bookmarked"}`}
         >
           {/* {bookmark === true ? <FcBookmark /> : <BsBookmark />} */}
           <BsBookmark />
@@ -52,7 +89,7 @@ let PostReaction = (props) => {
       </div>
       <div className="ReactionStatus">
         <p>
-          {HeartClasses === "Liked" ? props.NoOfLikes + 1 : props.NoOfLikes}{" "}
+          {isSavedImage ? props.NoOfLikes + 1 : props.NoOfLikes}{" "}
           Likes
         </p>
       </div>
