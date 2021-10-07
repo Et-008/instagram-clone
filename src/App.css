@@ -53,7 +53,7 @@ hr {
   display: block;
   width: 64px;
   height: 64px;
-  margin: 8px;
+  margin: auto;
   border-radius: 50%;
   border: 6px solid #fff;
   border-color: #fff transparent #fff transparent;

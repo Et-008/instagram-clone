@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import AuthRoutes from "./containers/Router/AuthRouter";
@@ -9,50 +9,49 @@ import "./App.css";
 function App() {
   let firebaseApp = getAuth();
   let [user, setUser] = useState();
-  let [AuthStatus, setAuthStatus] = useState();
+  let [AuthStatus, setAuthStatus] = useState(null);
 
   useEffect(() => {
-    // let userData = async () => {
-      getUserData();
-    // }
-  });
+    getUserData();
+  }, []);
 
   function getUserData() {
     onAuthStateChanged(firebaseApp, (user) => {
       if (user) {
-        setUser(user)
+        setUser(user);
+        setAuthStatus(true);
       } else {
         console.log("no user Found");
+        setAuthStatus(false);
       }
-      authHandler();
     });
   }
 
-  let authHandler = () => {
-    // AuthStatus !== localStorage.getItem("authStatus") && setAuthStatus(localStorage.getItem("authStatus"));
-    setAuthStatus(localStorage.getItem("authStatus"));
-  };
-
   let logoutHandler = () => {
-    // localStorage.getItem("authStatus") === null && setAuthStatus("");
     signOut(firebaseApp)
       .then(() => {
-        localStorage.removeItem("authStatus");
-        setAuthStatus("");
-        window.history.pushState('home', 'login/signup', '/');
+        setAuthStatus(false);
+        window.history.pushState("home", "login/signup", "/");
       })
       .catch((err) => console.log(err));
   };
 
-  console.log("App.js Auth status", AuthStatus);
+  const userContext = console.log(
+    "App.js Auth status",
+    AuthStatus ? "Logged In" : "Failed"
+  );
+
+  console.log("arun authStatus", AuthStatus);
 
   return (
     <BrowserRouter>
       <div className="App">
-        {AuthStatus === ("LoggedIn" || "SignedUp") ? (
+        {AuthStatus === null ? (
+          <div style={{background: "black"}} className="lds-dual-ring"></div>
+        ) : AuthStatus ? (
           <Router Logout={logoutHandler} user={user} />
         ) : (
-          <AuthRoutes Authenticated={authHandler} />
+          <AuthRoutes />
         )}
       </div>
     </BrowserRouter>

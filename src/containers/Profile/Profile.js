@@ -8,6 +8,7 @@ import Collections from "../../components/profile/collections/collections";
 import Photos from "../../components/profile/collections/photos";
 import EditProfile from "../../components/profile/edit-profile/edit-profile";
 import UpdateFirebase from "../../constants/updateFirebase";
+import ViewPic from "../../components/profile/view-pic/view-pic";
 
 let Profile = (props) => {
   const [myProfile, setMyProfile] = useState();
@@ -17,6 +18,7 @@ let Profile = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   // const [isPhotosLoading, setIsPhotosLoading] = useState(true);
   const [editTabOpen, setEditTabOpen] = useState(false);
+  const [clickedImage, setClickedImage] = useState("");
 
   useEffect(() => {
     if (props.OthersProfile) {
@@ -48,7 +50,7 @@ let Profile = (props) => {
   }
 
   function likedPhotosHandler(image) {
-    let likedPhotoArray = [...likedImages];
+    let likedPhotoArray = likedImages;
     likedPhotoArray.push(image);
     setLikedImages(likedPhotoArray);
   }
@@ -57,9 +59,20 @@ let Profile = (props) => {
     setEditTabOpen(!editTabOpen);
   }
 
+  function openImage(imageUrl) {
+    setClickedImage(imageUrl);
+  }
+
+  function closeImage() {
+    setClickedImage("");
+  }
+
   if (props.OthersProfile) {
     return !isLoading ? (
       <>
+        {clickedImage !== "" ? (
+          <ViewPic ImageUrl={clickedImage} CloseView={closeImage} />
+        ) : null}
         <div className="Profile">
           <Container>
             <div className="ProfileDetails">
@@ -119,7 +132,10 @@ let Profile = (props) => {
             >
               <Tab eventKey="collections" title="Collections">
                 {othersProfile.total_collections > 0 ? (
-                  <Collections userName={othersProfile.username} />
+                  <Collections
+                    OpenImage={(ImageUrl) => openImage(ImageUrl)}
+                    userName={othersProfile.username}
+                  />
                 ) : (
                   <div className="Empty-State">
                     <span>No Images Available</span>
@@ -131,7 +147,10 @@ let Profile = (props) => {
               </Tab>
               <Tab eventKey="photos" title="Photos">
                 {othersProfile.photos.length > 0 ? (
-                  <Photos userName={othersProfile.username} />
+                  <Photos
+                    OpenImage={(ImageUrl) => openImage(ImageUrl)}
+                    userName={othersProfile.username}
+                  />
                 ) : (
                   <div className="Empty-State">
                     <span>No Images Available</span>
@@ -152,6 +171,9 @@ let Profile = (props) => {
   return (
     <>
       <div className="Profile MyProfile">
+        {clickedImage !== "" ? (
+          <ViewPic ImageUrl={clickedImage} CloseView={closeImage} />
+        ) : null}
         {editTabOpen ? (
           <EditProfile
             myProfileData={myProfile}
@@ -173,20 +195,20 @@ let Profile = (props) => {
                   <button onClick={toggleEdit}>
                     <IoSettingsOutline /> Edit profile
                   </button>
-                </div>
-                <div className="Connections">
-                  <p>
-                    <span>0</span> Collections
-                  </p>
-                  <p>
-                    <span>0</span> Followers
-                  </p>
-                  <p>
-                    <span>0</span> Following
-                  </p>
-                  <p>
-                    <span>0</span> Photos
-                  </p>
+                  <div className="Connections">
+                    <p>
+                      <span>0</span> Collections
+                    </p>
+                    <p>
+                      <span>0</span> Followers
+                    </p>
+                    <p>
+                      <span>0</span> Following
+                    </p>
+                    <p>
+                      <span>0</span> Photos
+                    </p>
+                  </div>
                 </div>
               </Col>
             </Row>
@@ -224,6 +246,7 @@ let Profile = (props) => {
                         <Col key={i} lg={4}>
                           <div>
                             <img
+                              onClick={() => openImage(photo.url)}
                               className="Image"
                               src={photo.url}
                               alt="Loading"
@@ -252,6 +275,7 @@ let Profile = (props) => {
                         <Col key={i} lg={4}>
                           <div>
                             <img
+                              onClick={() => openImage(photo.url)}
                               className="Image"
                               src={photo.url}
                               alt="Loading"

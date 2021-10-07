@@ -28,6 +28,7 @@ const Photos = (props) => {
             <Col lg={4}>
               <div>
                 <img
+                  onClick={() => props.OpenImage(photo.urls.full)}
                   className="Image"
                   src={photo.urls.full}
                   alt="Loading"

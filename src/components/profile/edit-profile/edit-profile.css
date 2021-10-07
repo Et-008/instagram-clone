@@ -1,18 +1,3 @@
-.PopupWindow {
-  position: absolute;
-  z-index: 1100;
-  top: 50%;
-  left: 50%;
-  width: 50vw;
-  min-width: 400px;
-  padding: 40px 24px;
-  height: auto;
-  min-height: 600px;
-  background: #ffffff;
-  border: 1px solid #666666;
-  border-radius: 10px;
-  transform: translate(-50%, 0);
-}
 .PopupWindow .ProfilePic {
   cursor: pointer;
   position: relative;

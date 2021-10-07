@@ -26,7 +26,7 @@ let toolbar = (props) => {
           </p>
         </div>
         <nav className="ToolBarNavigationItems">
-          <NavItems />
+          <NavItems Logout={props.Logout} />
         </nav>
       </div>
     </div>

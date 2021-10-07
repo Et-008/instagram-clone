@@ -31,14 +31,13 @@ let Login = (props) => {
         else {
           error_message = user.message;
         }
-        console.log(user.code);
-        console.log(user.message);
+        // console.log(user.code);
+        // console.log(user.message);
         setLoginError(error_message);
       }
       else {
         console.log("Signed in as : ", user);
-        localStorage.setItem('authStatus', 'LoggedIn');
-        return props.AuthenticationStatus(LoginDetails);
+        // localStorage.setItem('authStatus', 'LoggedIn');
       }
     })
     .catch(err => console.error("Login error : " + err));

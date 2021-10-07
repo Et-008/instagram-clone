@@ -5,9 +5,6 @@ import Aux from "../../hoc/Aux";
 import "./Posts.css";
 
 class Posts extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   state = {
     postWithImages: [],
     images: [],

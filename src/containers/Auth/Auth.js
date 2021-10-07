@@ -33,11 +33,6 @@ class Auth extends Component {
     this.setState({ newUser: !newUserState });
   };
 
-  AuthenticationHandler = (Details) => {
-    console.log(Details);
-    this.props.Authenticated();
-  };
-
   render() {
     return (
       <div className="Login_Signup_Page">
@@ -54,12 +49,12 @@ class Auth extends Component {
           <h4>Instacam</h4>
           {this.state.newUser ? (
           <FirebaseContext.Consumer>
-            {firebase => <Signup firebase={firebase} OldUser={this.LoginSignupHandler} AuthenticationStatus={this.AuthenticationHandler} />
+            {firebase => <Signup firebase={firebase} OldUser={this.LoginSignupHandler} />
             }
             </FirebaseContext.Consumer>
           ) : (
           <FirebaseContext.Consumer>
-            {firebase => <Login firebase={firebase} NewUser={this.LoginSignupHandler} AuthenticationStatus={this.AuthenticationHandler} />
+            {firebase => <Login firebase={firebase} NewUser={this.LoginSignupHandler} />
             }
           </FirebaseContext.Consumer>
           )}

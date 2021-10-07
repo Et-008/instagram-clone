@@ -1,0 +1,23 @@
+.View-Pic {
+  height: 100%;
+}
+.View-Pic .row {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+.View-Pic .row div {
+  padding: 0;
+}
+.View-Pic .row div:first-child {
+  display: grid;
+  background: #000000;
+}
+.View-Pic img {
+  object-fit: scale-down;
+  margin: auto;
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
+}

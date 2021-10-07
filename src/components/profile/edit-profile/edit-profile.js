@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./edit-profile.css";
 import axios from "axios";
 import { Col, Row } from "react-bootstrap";
+import PopupWindow from "../../UI/popup/popup";
 import Backdrop from "../../UI/Backdrop/Backdrop";
 import PlaceHolderProfilePic from "../../../assets/Images/download.png";
 import { TextInput, TextArea } from "../../UI/Inputs/Inputs";
@@ -36,13 +37,13 @@ let EditProfile = (props) => {
   function updateImage() {
     let ImageFile = convertImageToUri(imageUploadRef.current.files[0]);
     axios({
-        method: 'post',
-        url: `${process.env.REACT_APP_GRAPHCMS}/upload`,
-        headers: {
-          'Authorization': `Bearer ${process.env.REACT_APP_PAT}`,
-        },
-        data: ImageFile,
-    })
+      method: "post",
+      url: `${process.env.REACT_APP_GRAPHCMS}/upload`,
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_PAT}`,
+      },
+      data: ImageFile,
+    });
   }
 
   function convertImageToUri(file) {
@@ -57,8 +58,7 @@ let EditProfile = (props) => {
 
   return (
     <>
-      <Backdrop onClick={props.toggleEdit} />
-      <div className="PopupWindow">
+      <PopupWindow padding="40px 24px" ClosePopup={props.toggleEdit}>
         <Row>
           <Col xs={3}>
             <div className="ProfilePic" onClick={openImageUpload}>
@@ -82,8 +82,16 @@ let EditProfile = (props) => {
             </div>
           </Col>
           <Col>
-            <TextInput value={name} placeholder="Name" onChange={(val) => setName(val)} />
-            <TextArea value={bio} placeholder="Bio" onChange={(val) => setBio(val)} />
+            <TextInput
+              value={name}
+              placeholder="Name"
+              onChange={(val) => setName(val)}
+            />
+            <TextArea
+              value={bio}
+              placeholder="Bio"
+              onChange={(val) => setBio(val)}
+            />
           </Col>
         </Row>
         <Row>
@@ -96,7 +104,7 @@ let EditProfile = (props) => {
             </Button>
           </Col>
         </Row>
-      </div>
+      </PopupWindow>
     </>
   );
 };

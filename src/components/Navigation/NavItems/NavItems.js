@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaPowerOff } from "react-icons/fa";
 import NavItem from "./NavItem/NavItem";
 import Icons from "../../../assets/Icons/Icons";
 import "./NavItems.css";
@@ -56,6 +57,9 @@ let navitems = (props) => {
         <Link to={Routes.MyProfile}>
           <img alt="Icon" className="Icon" title="Profile" src={Icons.User} />
         </Link>
+      </NavItem>
+      <NavItem>
+        <FaPowerOff className="Icon" onClick={props.Logout} />
       </NavItem>
     </ul>
   );

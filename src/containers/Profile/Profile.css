@@ -49,7 +49,7 @@
   font-size: 1.5rem;
   display: block;
 }
-.MyProfile .ProfileDetails .Right {
+.MyProfile .ProfileDetails .UserName {
   display: inline-flex;
   align-items: center;
 }
@@ -130,5 +130,8 @@
   }
   .GrideView {
     width: 100%;
+  }
+  .MyProfile .ProfileDetails .Right button {
+    margin: 16px 0;
   }
 }
