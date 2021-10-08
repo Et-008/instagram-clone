@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./edit-profile.css";
 import axios from "axios";
 import { Col, Row } from "react-bootstrap";
 import PopupWindow from "../../UI/popup/popup";
-import Backdrop from "../../UI/Backdrop/Backdrop";
+// import Backdrop from "../../UI/Backdrop/Backdrop";
 import PlaceHolderProfilePic from "../../../assets/Images/download.png";
 import { TextInput, TextArea } from "../../UI/Inputs/Inputs";
 import Button from "../../UI/Button/Button";

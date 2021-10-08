@@ -36,7 +36,7 @@ let Login = (props) => {
         setLoginError(error_message);
       }
       else {
-        console.log("Signed in as : ", user);
+        console.log("Signed in");
         // localStorage.setItem('authStatus', 'LoggedIn');
       }
     })

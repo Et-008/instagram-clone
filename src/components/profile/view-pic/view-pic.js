@@ -3,7 +3,7 @@ import "./view-pic.css";
 import PopupWindow from "../../UI/popup/popup";
 import { Col, Row } from "react-bootstrap";
 import PostImage from "../../Posts/Post/PostImage/PostImage";
-import PostReaction from "../../Posts/Post/PostReactions/PostReactions";
+// import PostReaction from "../../Posts/Post/PostReactions/PostReactions";
 
 let ViewPic = (props) => {
   return (

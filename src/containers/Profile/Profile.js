@@ -9,6 +9,7 @@ import Photos from "../../components/profile/collections/photos";
 import EditProfile from "../../components/profile/edit-profile/edit-profile";
 import UpdateFirebase from "../../constants/updateFirebase";
 import ViewPic from "../../components/profile/view-pic/view-pic";
+import ViewCollection from '../../components/profile/view-collection/view-collection'
 
 let Profile = (props) => {
   const [myProfile, setMyProfile] = useState();
@@ -16,9 +17,9 @@ let Profile = (props) => {
   const [savedPhotos, setSavedPhotos] = useState([]);
   const [likedImages, setLikedImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [isPhotosLoading, setIsPhotosLoading] = useState(true);
   const [editTabOpen, setEditTabOpen] = useState(false);
   const [clickedImage, setClickedImage] = useState("");
+  const [clickedCollection, setClickedCollection] = useState("");
 
   useEffect(() => {
     if (props.OthersProfile) {
@@ -41,6 +42,7 @@ let Profile = (props) => {
 
   useEffect(() => {
     UpdateFirebase.getUserData(props.User.uid, setMyProfile);
+    // eslint-disable-next-line
   }, [editTabOpen]);
 
   function savedPhotosHandler(image) {
@@ -63,8 +65,16 @@ let Profile = (props) => {
     setClickedImage(imageUrl);
   }
 
+  function openCollection(collectionId) {
+    setClickedCollection(collectionId)
+  }
+
   function closeImage() {
     setClickedImage("");
+  }
+
+  function closeCollection() {
+    setClickedCollection("");
   }
 
   if (props.OthersProfile) {
@@ -72,6 +82,9 @@ let Profile = (props) => {
       <>
         {clickedImage !== "" ? (
           <ViewPic ImageUrl={clickedImage} CloseView={closeImage} />
+        ) : null}
+        {clickedCollection !== "" ? (
+          <ViewCollection CollectionId={clickedCollection} CloseView={closeCollection} />
         ) : null}
         <div className="Profile">
           <Container>
@@ -133,7 +146,7 @@ let Profile = (props) => {
               <Tab eventKey="collections" title="Collections">
                 {othersProfile.total_collections > 0 ? (
                   <Collections
-                    OpenImage={(ImageUrl) => openImage(ImageUrl)}
+                   OpenCollection={(CollectionId) => openCollection(CollectionId)}
                     userName={othersProfile.username}
                   />
                 ) : (

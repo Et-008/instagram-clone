@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Col, Row } from "react-bootstrap";
 
@@ -8,6 +8,7 @@ const Collections = (props) => {
 
   useEffect(() => {
     getCollection();
+    // eslint-disable-next-line
   }, [props.userName]);
 
   function getCollection() {
@@ -16,7 +17,7 @@ const Collections = (props) => {
         `https://api.unsplash.com/users/${props.userName}/collections/?client_id=htn3ZJRkveEujzltUO7_r9bkczF-sy-SYLFEmZNkPhY`
       )
       .then((res) => {
-        console.log("rerendered");
+        // console.log("rerendered");
         setCollections(res.data);
         setIsLoading(false);
       })
@@ -47,7 +48,7 @@ const Collections = (props) => {
             <Col lg={4}>
               <div>
                 <img
-                  onClick={() => props.OpenImage(coll.cover_photo.urls.full)}
+                  onClick={() => props.OpenCollection(coll.id)}
                   className="Image"
                   src={coll.cover_photo.urls.full}
                   alt="Loading"

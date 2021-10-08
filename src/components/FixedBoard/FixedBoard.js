@@ -15,7 +15,7 @@ let Fixedboard = (props) => {
       .then((response) => {
         setUsers(response.data.slice(0, 5));
         setIsLoading(false);
-        console.log(response);
+        // console.log(response);
       })
       .catch((err) => console.error(err));
   }, []);

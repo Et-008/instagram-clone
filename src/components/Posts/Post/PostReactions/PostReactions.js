@@ -13,7 +13,10 @@ let PostReaction = (props) => {
   const [isLikedImage, setIsLikedImage] = useState(false);
   const [likedImages, setLikedImages] = useState([]);
 
-  
+  // const user = useContext(UserContext);
+
+  // console.log("Context User", user);
+
   useEffect(() => {
     UpdateFirebase.getSavedPosts(props.UserId, (image) =>
       savedPhotosHandler(image)
@@ -21,6 +24,7 @@ let PostReaction = (props) => {
     UpdateFirebase.getLikedPosts(props.UserId, (image) =>
       likedPhotosHandler(image)
     );
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -30,6 +34,7 @@ let PostReaction = (props) => {
         return likedImage.id === props.ImageId;
       });
     setIsLikedImage(imgStatus);
+    // eslint-disable-next-line
   }, [likedImages]);
 
   useEffect(() => {
@@ -39,6 +44,7 @@ let PostReaction = (props) => {
         return savedPhoto.id === props.ImageId;
       });
     setIsSavedImage(imgStatus);
+    // eslint-disable-next-line
   }, [savedImages]);
 
   function savedPhotosHandler(image) {
@@ -55,13 +61,17 @@ let PostReaction = (props) => {
 
   let Like = () => {
     if (!isLikedImage) {
-      UpdateFirebase.likePosts(props.UserId, props.ImageId, props.ImageSource)
+      UpdateFirebase.likePosts(props.UserId, props.ImageId, props.ImageSource);
     }
   };
 
   let Save = () => {
     if (!isSavedImage) {
-      UpdateFirebase.bookmarkPosts(props.UserId, props.ImageId, props.ImageSource)
+      UpdateFirebase.bookmarkPosts(
+        props.UserId,
+        props.ImageId,
+        props.ImageSource
+      );
     }
   };
 
@@ -69,7 +79,10 @@ let PostReaction = (props) => {
     <div className="PostReactions">
       <div className="ReactionIconsDiv">
         {/* <div id="heart" onClick={() => Like()} className={HeartClasses}></div> */}
-        <div onClick={Like} className={`ReactionIcons ${isLikedImage && "Liked"}`}>
+        <div
+          onClick={Like}
+          className={`ReactionIcons ${isLikedImage && "Liked"}`}
+        >
           {/* {HeartClasses === "Liked" ? <FcLike /> : <BsHeart />} */}
           <BsHeart />
         </div>
@@ -88,11 +101,11 @@ let PostReaction = (props) => {
         </div>
       </div>
       <div className="ReactionStatus">
-        <p>
-          {isSavedImage ? props.NoOfLikes + 1 : props.NoOfLikes}{" "}
-          Likes
-        </p>
+        <p>{isSavedImage ? props.NoOfLikes + 1 : props.NoOfLikes} Likes</p>
       </div>
+      {/* <UserContext.Consumer>
+        {(value) => console.log(value)}
+      </UserContext.Consumer> */}
     </div>
   );
 };

@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     getUserData();
+    // eslint-disable-next-line
   }, []);
 
   function getUserData() {
@@ -36,20 +37,20 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  const userContext = console.log(
-    "App.js Auth status",
-    AuthStatus ? "Logged In" : "Failed"
-  );
+  const UserContext = createContext(null);
 
-  console.log("arun authStatus", AuthStatus);
+  // console.log("arun authStatus", UserContext);
+  // console.log("arun authStatus", AuthStatus);
 
   return (
     <BrowserRouter>
       <div className="App">
         {AuthStatus === null ? (
-          <div style={{background: "black"}} className="lds-dual-ring"></div>
+          <div style={{ background: "black" }} className="lds-dual-ring"></div>
         ) : AuthStatus ? (
-          <Router Logout={logoutHandler} user={user} />
+          <UserContext.Provider value={user}>
+            <Router Logout={logoutHandler} user={user} />
+          </UserContext.Provider>
         ) : (
           <AuthRoutes />
         )}

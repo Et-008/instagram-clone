@@ -10,10 +10,15 @@
   padding: 0;
 }
 .View-Pic .row div:first-child {
+  position: relative;
   display: grid;
   background: #000000;
 }
 .View-Pic img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
   object-fit: scale-down;
   margin: auto;
   height: auto;
