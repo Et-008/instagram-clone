@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from '../../../components/UI/Button/Button';
 import Aux from "../../../hoc/Aux";
 import "./Signup.css";
@@ -9,6 +9,15 @@ let Signup = (props) => {
   let [Mobile, setMobile] = useState(" +91 ");
   let [Password, setPassword] = useState("");
   let [ConfirmPassword, setConfirmPassword] = useState("");
+  let [SignUpError, setSignUpError] = useState(null);
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      setSignUpError(null)
+    }, 5000)
+
+    return () => clearTimeout(timer)
+  }, [SignUpError])
 
   let clicked = (e) => {
     let SignupDetails = {
@@ -20,8 +29,18 @@ let Signup = (props) => {
     };
     props.firebase.createNewUser(SignupDetails.email, SignupDetails.password, SignupDetails.name)
     .then(user => {
+      console.log(user.code)
+      let error_message = null;
+      if(user.code === "auth/email-already-in-use") {
+        error_message = "This Mail id is already in use"
+      } else {
+        error_message = user.code;
+      }
+      
+      setSignUpError(error_message);
+
       console.log("Sign up Success")
-      localStorage.setItem('authStatus', 'SignedUp');
+      // localStorage.setItem('authStatus', 'SignedUp');
     })
     .catch(err => console.error("Sign up error" + err))
   };
@@ -84,7 +103,7 @@ let Signup = (props) => {
           ></input>
           <Button
             Disabled={
-              Name && Email && Password && Password === ConfirmPassword
+              Name && Email && Password && Password.length > 6 && Password === ConfirmPassword
                 ? false
                 : true
             }
@@ -92,6 +111,7 @@ let Signup = (props) => {
           >
             Sign-up
           </Button>
+          {SignUpError ? <h6 className="Error_Display" >{SignUpError}</h6> : null}
           <p>
             Already have an account?{" "}
             <span className="Link" style={{ cursor: "pointer" }} onClick={props.OldUser}>
